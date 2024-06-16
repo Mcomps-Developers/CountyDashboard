@@ -37,7 +37,7 @@
                                                 @else
                                                     <p>Upload Image</p>
                                                 @endif
-                                                <small>Will automatically be resized to 295x300 pixels.</small>
+                                                <small>Will automatically be resized to 1200x800 pixels.</small>
                                                 <p wire:loading wire:target='photo'>Uploading...</p>
                                             </div>
                                             <input type="file" class="upload" wire:model.live='photo'>
@@ -53,8 +53,8 @@
                                             <div class="change-photo-btn">
                                                 <div>
                                                     @if ($photo)
-                                                        <img src="{{ $photo->temporaryUrl() }}" width="95"
-                                                            height="100" alt="">
+                                                        <img src="{{ $photo->temporaryUrl() }}" width="200"
+                                                            height="150" alt="">
                                                     @else
                                                         <p>No Image has been uploaded</p>
                                                     @endif
