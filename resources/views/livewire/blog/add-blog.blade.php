@@ -66,9 +66,9 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group" wire:ignore>
                                         <label>Speech Content</label>
-                                        <textarea id="speech_content" class="form-control" wire:model.live='speech_content' columns="2" rows="4"></textarea>
+                                        <textarea id="content" class="form-control" wire:model.live='content' columns="2" rows="4"></textarea>
                                     </div>
-                                    @error('speech_content')
+                                    @error('content')
                                         <p class="text text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
@@ -110,14 +110,14 @@
     <script>
         $(function() {
             tinymce.init({
-                selector: '#speech_content',
+                selector: '#content',
                 plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
                 toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
                 setup: function(editor) {
                     editor.on('Change', function(e) {
                         tinymce.triggerSave();
-                        var sd_data = $('#speech_content').val();
-                        @this.set('speech_content', sd_data);
+                        var sd_data = $('#content').val();
+                        @this.set('content', sd_data);
                     });
                 }
             });

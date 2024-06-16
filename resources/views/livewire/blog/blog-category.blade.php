@@ -16,140 +16,63 @@
         </div>
     </div>
     <div class="row">
-
-        <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
-            <div class="blog grid-blog flex-fill">
-                <div class="blog-image">
-                    <a href="blog-details.html"><img class="img-fluid"
-                            src="{{ asset('assets/img/category/blog-6.jpg') }}" alt="Post Image"></a>
-                    <div class="blog-views">
-                        <i class="feather-eye me-1"></i> 225
-                    </div>
-                </div>
-                <div class="blog-content">
-                    <ul class="entry-meta meta-item">
-                        <li>
-                            <div class="post-author">
-                                <a href="profile.html">
-                                    <img src="{{ asset('assets/img/profiles/avatar-01.jpg') }}" alt="Post Author">
-                                    <span>
-                                        <span class="post-title">Vincent</span>
-                                        <span class="post-date"><i class="far fa-clock"></i> 4 Dec 2022</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                    <h3 class="blog-title"><a href="blog-details.html">Learning is an objective, Lorem Ipsum is not </a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
-                </div>
-                <div class="row">
-                    <div class="edit-options">
-                        <div class="edit-delete-btn">
-                            <a href="edit-blog.html" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>
-                            <a href="#" class="text-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>
+        @foreach ($content as $item)
+            <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
+                <div class="blog grid-blog flex-fill">
+                    <div class="blog-image">
+                        <a href="blog-details.html"><img class="img-fluid"
+                                src="{{ asset('assets/img/blogs') }}/{{ $item->image }}" alt="Post Image"></a>
+                        <div class="blog-views">
+                            <i class="feather-eye me-1"></i> {{ $item->views }}
                         </div>
-                        <div class="text-end inactive-style">
-                            <a href="javascript:void(0);" class="text-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteNotConfirmModal"><i class="feather-eye-off me-1"></i>
-                                Inactive</a>
+                    </div>
+                    <div class="blog-content">
+                        <ul class="entry-meta meta-item">
+                            <li>
+                                <div class="post-author">
+                                    <a href="profile.html">
+                                        <img src="{{ $item->author->profile_photo_url}}" alt="Post Author">
+                                        <span>
+                                            <span class="post-title"
+                                                style="text-transform: capitalize">{{ $item->author->first_name }}
+                                                {{ $item->author->last_name }}</span>
+                                            <span class="post-date"><i class="far fa-clock"></i>
+                                                {{ date('d M Y', strtotime($item->created_at)) }}</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                        <h3 class="blog-title"><a href="blog-details.html">{{ $item->title }}
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <div class="edit-options">
+                            <div class="edit-delete-btn">
+                                <a href="edit-blog.html" class="text-success"><i class="feather-edit-3 me-1"></i>
+                                    Edit</a>
+                                <a href="#" class="text-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>
+                            </div>
+                            <div class="text-end edit-delete-btn">
+                                @if ($item->status === 'published')
+                                    <a href="javascript:void(0);" class="text-success"
+                                        style="text-transform: capitalize"><i class="feather-eye me-1"></i>
+                                        {{ $item->status }}</a>
+                                @else
+                                    <a href="javascript:void(0);" class="btext-danger"
+                                        style="text-transform: capitalize"><i class="feather-eye-off me-1"></i>
+                                        {{ $item->status }}</a>
+                                @endif
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
 
-
-        <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
-            <div class="blog grid-blog flex-fill">
-                <div class="blog-image">
-                    <a href="blog-details.html"><img class="img-fluid"
-                            src="{{ asset('assets/img/category/blog-2.jpg') }}" alt="Post Image"></a>
-                    <div class="blog-views">
-                        <i class="feather-eye me-1"></i> 132
-                    </div>
-                </div>
-                <div class="blog-content">
-                    <ul class="entry-meta meta-item">
-                        <li>
-                            <div class="post-author">
-                                <a href="profile.html">
-                                    <img src="{{ asset('assets/img/profiles/avatar-02.jpg') }}" alt="Post Author">
-                                    <span>
-                                        <span class="post-title">Lois A</span>
-                                        <span class="post-date"><i class="far fa-clock"></i> 4 Dec 2022</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                    <h3 class="blog-title"><a href="blog-details.html">Discussion Increase student learning</a></h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
-                </div>
-                <div class="row">
-                    <div class="edit-options">
-                        <div class="edit-delete-btn">
-                            <a href="edit-blog.html" class="text-success"><i class="feather-edit-3 me-1"></i> Edit</a>
-                            <a href="edit-blog.html" class="text-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i></i> Delete</a>
-                        </div>
-                        <div class="text-end inactive-style">
-                            <a href="javascript:void(0);" class="text-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteNotConfirmModal"><i class="feather-eye-off me-1"></i>
-                                Inactive</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
-            <div class="blog grid-blog flex-fill">
-                <div class="blog-image">
-                    <a href="blog-details.html"><img class="img-fluid"
-                            src="{{ asset('assets/img/category/blog-3.jpg') }}" alt="Post Image"></a>
-                    <div class="blog-views">
-                        <i class="feather-eye me-1"></i> 344
-                    </div>
-                </div>
-                <div class="blog-content">
-                    <ul class="entry-meta meta-item">
-                        <li>
-                            <div class="post-author">
-                                <a href="profile.html">
-                                    <img src="{{ asset('assets/img/profiles/avatar-03.jpg') }}" alt="Post Author">
-                                    <span>
-                                        <span class="post-title">Levell Scott</span>
-                                        <span class="post-date"><i class="far fa-clock"></i> 4 Dec 2022</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                    <h3 class="blog-title"><a href="blog-details.html">Music reduces stress,Lorem Ipsum is not </a>
-                    </h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
-                </div>
-                <div class="row">
-                    <div class="edit-options">
-                        <div class="edit-delete-btn">
-                            <a href="edit-blog.html" class="text-success"><i class="feather-edit-3 me-1"></i>
-                                Edit</a>
-                            <a href="edit-blog.html" class="text-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i></i> Delete</a>
-                        </div>
-                        <div class="text-end inactive-style">
-                            <a href="javascript:void(0);" class="text-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteNotConfirmModal"><i class="feather-eye-off me-1"></i>
-                                Inactive</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 
@@ -157,19 +80,7 @@
         <div class="col-md-12">
             <div class="pagination-tab d-flex justify-content-center">
                 <ul class="mb-0 pagination">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1"><i
-                                class="mr-2 feather-chevron-left"></i>Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active">
-                        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next<i class="ml-2 feather-chevron-right"></i></a>
-                    </li>
+                    {{ $content->links('pagination::bootstrap-5') }}
                 </ul>
             </div>
         </div>
