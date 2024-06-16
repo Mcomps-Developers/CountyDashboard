@@ -10,8 +10,9 @@
             </ul>
         </div>
         <div class="col-md-3 text-md-end">
-            <a href="{{ route('blog.add') }}" class="mb-3 btn btn-primary btn-blog"><i class="feather-plus-circle me-1"></i> Add
-                {{ $category->name }}</a>
+            <a href="{{ route('blog.add', ['slug' => $category->slug]) }}" class="mb-3 btn btn-primary btn-blog"><i
+                    class="feather-plus-circle me-1"></i> Add
+                New</a>
         </div>
     </div>
     <div class="row">
@@ -19,8 +20,8 @@
         <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
             <div class="blog grid-blog flex-fill">
                 <div class="blog-image">
-                    <a href="blog-details.html"><img class="img-fluid" src="{{ asset('assets/img/category/blog-6.jpg') }}"
-                            alt="Post Image"></a>
+                    <a href="blog-details.html"><img class="img-fluid"
+                            src="{{ asset('assets/img/category/blog-6.jpg') }}" alt="Post Image"></a>
                     <div class="blog-views">
                         <i class="feather-eye me-1"></i> 225
                     </div>
@@ -30,7 +31,7 @@
                         <li>
                             <div class="post-author">
                                 <a href="profile.html">
-                                    <img src="{{asset('assets/img/profiles/avatar-01.jpg')}}" alt="Post Author">
+                                    <img src="{{ asset('assets/img/profiles/avatar-01.jpg') }}" alt="Post Author">
                                     <span>
                                         <span class="post-title">Vincent</span>
                                         <span class="post-date"><i class="far fa-clock"></i> 4 Dec 2022</span>
@@ -64,8 +65,8 @@
         <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
             <div class="blog grid-blog flex-fill">
                 <div class="blog-image">
-                    <a href="blog-details.html"><img class="img-fluid" src="{{ asset('assets/img/category/blog-2.jpg') }}"
-                            alt="Post Image"></a>
+                    <a href="blog-details.html"><img class="img-fluid"
+                            src="{{ asset('assets/img/category/blog-2.jpg') }}" alt="Post Image"></a>
                     <div class="blog-views">
                         <i class="feather-eye me-1"></i> 132
                     </div>
@@ -108,8 +109,8 @@
         <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
             <div class="blog grid-blog flex-fill">
                 <div class="blog-image">
-                    <a href="blog-details.html"><img class="img-fluid" src="{{ asset('assets/img/category/blog-3.jpg') }}"
-                            alt="Post Image"></a>
+                    <a href="blog-details.html"><img class="img-fluid"
+                            src="{{ asset('assets/img/category/blog-3.jpg') }}" alt="Post Image"></a>
                     <div class="blog-views">
                         <i class="feather-eye me-1"></i> 344
                     </div>

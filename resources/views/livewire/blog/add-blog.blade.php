@@ -1,6 +1,6 @@
 <div class="content container-fluid">
     @section('title')
-        Add Speech
+        Add to  {{ $categoryName }}
     @endsection
     <div class="row">
         <div class="col-xl-12">
@@ -8,7 +8,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Add Speech</h3>
+                        <h3 class="page-title">Add to  {{ $categoryName }}</h3>
                     </div>
                 </div>
             </div>
