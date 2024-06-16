@@ -79,7 +79,7 @@ class AddBlog extends Component
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
                 $resizedImage = Image::read($this->photo->getRealPath())->resize(295, 300);
-                $destinationPath = public_path('assets/img/blogs');
+                $destinationPath = base_path('assets/img/blogs');
                 $resizedImage->save($destinationPath . '/' . $photoName);
                 $blog->image = $photoName;
             }
