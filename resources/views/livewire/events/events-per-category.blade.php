@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
+                                    <th>Location</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>Action</th>
@@ -52,7 +53,7 @@
                                                 <a>{{ $item->title }}</a>
                                             </h2>
                                         </td>
-                                        <td>College Holiday</td>
+                                        <td>{{ $item->location }}</td>
                                         <td>{{ date('d M Y h:iA', strtotime($item->start_date_and_time)) }}</td>
                                         <td>{{ date('d M Y h:iA', strtotime($item->end_date_and_time)) }}</td>
                                         <td></td>
