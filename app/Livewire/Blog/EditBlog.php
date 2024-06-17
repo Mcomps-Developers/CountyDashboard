@@ -16,8 +16,9 @@ class EditBlog extends Component
     public $tags;
     public $publishing_date;
     public $image;
-    public function mount()
+    public function mount($reference)
     {
+        $this->reference = $reference;
         $blog = Blog::where('reference', $this->reference)->first();
         $this->title = $blog->title;
         $this->content = $blog->content;
