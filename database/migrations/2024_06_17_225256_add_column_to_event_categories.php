@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table('event_categories', function (Blueprint $table) {
+        Schema::table('events', function (Blueprint $table) {
             $table->unsignedBigInteger('cat_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('cat_id')->references('id')->on('event_categories')->onDelete('cascade');
