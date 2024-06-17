@@ -20,7 +20,7 @@
             <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
                 <div class="blog grid-blog flex-fill">
                     <div class="blog-image">
-                        <a href="blog-details.html"><img class="img-fluid"
+                        <a href="javascript:void(0);"><img class="img-fluid"
                                 src="{{ asset('assets/img/blogs') }}/{{ $item->image }}" alt="Post Image"></a>
                         <div class="blog-views">
                             <i class="feather-eye me-1"></i> {{ $item->views }}
@@ -30,8 +30,8 @@
                         <ul class="entry-meta meta-item">
                             <li>
                                 <div class="post-author">
-                                    <a href="profile.html">
-                                        <img src="{{ $item->author->profile_photo_url}}" alt="Post Author">
+                                    <a href="javascript:void(0);">
+                                        <img src="{{ $item->author->profile_photo_url }}">
                                         <span>
                                             <span class="post-title"
                                                 style="text-transform: capitalize">{{ $item->author->first_name }}
@@ -43,7 +43,7 @@
                                 </div>
                             </li>
                         </ul>
-                        <h3 class="blog-title"><a href="blog-details.html">{{ $item->title }}
+                        <h3 class="blog-title"><a href="javascript:void(0);">{{ $item->title }}
                             </a>
                         </h3>
                     </div>
@@ -52,8 +52,33 @@
                             <div class="edit-delete-btn">
                                 <a href="edit-blog.html" class="text-success"><i class="feather-edit-3 me-1"></i>
                                     Edit</a>
-                                <a href="#" class="text-danger" data-bs-toggle="modal"
-                                    data-bs-target="#deleteModal"><i class="feather-trash-2 me-1"></i> Delete</a>
+                                <a href="javascript:void(0);" class="text-danger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal-{{ $item->id }}"><i
+                                        class="feather-trash-2 me-1"></i> Delete</a>
+                            </div>
+                            <div class="modal fade contentmodal" id="deleteModal-{{ $item->id }}" tabindex="-1"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content doctor-profile">
+                                        <div class="pb-0 modal-header border-bottom-0 justify-content-end">
+                                            <button type="button" class="close-btn" data-bs-dismiss="modal"
+                                                aria-label="Close"><i class="feather-x-circle"></i></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="text-center delete-wrap">
+                                                <div class="del-icon"><i class="feather-x-circle"></i></div>
+                                                <h2>Sure you want to delete</h2>
+                                                <div class="submit-section">
+                                                    <a href="javascript:void(0);"
+                                                        wire:click.prevent='deleteBlog({{ $item->id }})'
+                                                        class="btn btn-success me-2">Yes</a>
+                                                    <a href="#" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">No</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="text-end edit-delete-btn">
                                 @if ($item->status === 'published')
@@ -87,25 +112,6 @@
     </div>
 
 
-    <div class="modal fade contentmodal" id="deleteModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content doctor-profile">
-                <div class="pb-0 modal-header border-bottom-0 justify-content-end">
-                    <button type="button" class="close-btn" data-bs-dismiss="modal" aria-label="Close"><i
-                            class="feather-x-circle"></i></button>
-                </div>
-                <div class="modal-body">
-                    <div class="text-center delete-wrap">
-                        <div class="del-icon"><i class="feather-x-circle"></i></div>
-                        <h2>Sure you want to delete</h2>
-                        <div class="submit-section">
-                            <a href="blog.html" class="btn btn-success me-2">Yes</a>
-                            <a href="#" class="btn btn-danger" data-bs-dismiss="modal">No</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
 </div>
