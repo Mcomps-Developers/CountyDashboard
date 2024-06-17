@@ -17,6 +17,7 @@ class EditBlog extends Component
     public $publishing_date;
     public $image;
     public $photo;
+    private $slug;
     public function mount($reference)
     {
         $this->reference = $reference;
@@ -57,8 +58,6 @@ class EditBlog extends Component
             $blog->content = $this->content;
             $blog->tags = $this->tags;
             $blog->created_at = empty($this->publishing_date) ? Carbon::now() : $this->publishing_date;
-
-            $blog->category_id = $category->id;
             $blog->reference = $this->generateUniqueReference(Blog::class, 'reference', 5);
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
