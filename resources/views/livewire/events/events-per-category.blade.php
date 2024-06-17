@@ -1,13 +1,13 @@
 <div class="content container-fluid">
     @section('title')
-        {{ $category->nae }} Events
+        {{ $category->name }} Events
     @endsection
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col">
                 <h3 class="page-title">Events</h3>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item active">{{ $category->nae }} Events</li>
+                    <li class="breadcrumb-item active">{{ $category->name }} Events</li>
                 </ul>
             </div>
         </div>
@@ -37,104 +37,31 @@
                             <thead class="student-thread">
                                 <tr>
                                     <th>ID</th>
-                                    <th>Holiday Name</th>
-                                    <th>Type</th>
+                                    <th>Title</th>
                                     <th>Start Date</th>
                                     <th>End Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>PRE2209</td>
-                                    <td>
-                                        <h2>
-                                            <a>Sports Day</a>
-                                        </h2>
-                                    </td>
-                                    <td>College Holiday</td>
-                                    <td>17 Aug 2020</td>
-                                    <td>19 Aug 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2213</td>
-                                    <td>
-                                        <h2>
-                                            <a>Memorial Day</a>
-                                        </h2>
-                                    </td>
-                                    <td>Public Holiday</td>
-                                    <td>05 Aug 2020</td>
-                                    <td>06 Aug 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2143</td>
-                                    <td>
-                                        <h2>
-                                            <a>Annual Day</a>
-                                        </h2>
-                                    </td>
-                                    <td>College Holiday</td>
-                                    <td>04 Sept 2020</td>
-                                    <td>07 Sept 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2431</td>
-                                    <td>
-                                        <h2>
-                                            <a>Exam Holiday</a>
-                                        </h2>
-                                    </td>
-                                    <td>Semester leave</td>
-                                    <td>17 Sept 2020</td>
-                                    <td>30 Sept 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2209</td>
-                                    <td>
-                                        <h2>
-                                            <a>Sports Day</a>
-                                        </h2>
-                                    </td>
-                                    <td>College Holiday</td>
-                                    <td>17 Aug 2020</td>
-                                    <td>19 Aug 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2213</td>
-                                    <td>
-                                        <h2>
-                                            <a>Memorial Day</a>
-                                        </h2>
-                                    </td>
-                                    <td>Public Holiday</td>
-                                    <td>05 Aug 2020</td>
-                                    <td>06 Aug 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2143</td>
-                                    <td>
-                                        <h2>
-                                            <a>Annual Day</a>
-                                        </h2>
-                                    </td>
-                                    <td>College Holiday</td>
-                                    <td>04 Sept 2020</td>
-                                    <td>07 Sept 2020</td>
-                                </tr>
-                                <tr>
-                                    <td>PRE2431</td>
-                                    <td>
-                                        <h2>
-                                            <a>Exam Holiday</a>
-                                        </h2>
-                                    </td>
-                                    <td>Semester leave</td>
-                                    <td>17 Sept 2020</td>
-                                    <td>30 Sept 2020</td>
-                                </tr>
+                                @foreach ($events as $item)
+                                    <tr>
+                                        <td style="text-transform: uppercase">{{ $item->reference }}</td>
+                                        <td>
+                                            <h2>
+                                                <a>{{ $item->title }}</a>
+                                            </h2>
+                                        </td>
+                                        <td>College Holiday</td>
+                                        <td>{{ date('d M Y h:iA', strtotime($item->start_date_and_time)) }}</td>
+                                        <td>{{ date('d M Y h:iA', strtotime($item->end_date_and_time)) }}</td>
+                                        <td></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
+                    {{ $events->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>
