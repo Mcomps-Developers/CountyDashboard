@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Events;
 
-use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -22,7 +22,7 @@ class AddEventCategory extends Component
     {
         $this->validate();
         try {
-            $category = new Event();
+            $category = new EventCategory();
             $category->name = $this->name;
             $category->slug = Str::slug($this->name, '-');
             $category->save();
