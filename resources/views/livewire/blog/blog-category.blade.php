@@ -50,7 +50,8 @@
                     <div class="row">
                         <div class="edit-options">
                             <div class="edit-delete-btn">
-                                <a href="edit-blog.html" class="text-success"><i class="feather-edit-3 me-1"></i>
+                                <a href="{{ route('blog.edit', ['reference' => $item->reference]) }}"
+                                    class="text-success"><i class="feather-edit-3 me-1"></i>
                                     Edit</a>
                                 <a href="javascript:void(0);" class="text-danger" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal-{{ $item->id }}"><i
