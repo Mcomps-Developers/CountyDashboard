@@ -14,7 +14,7 @@ class EventsPerCategory extends Component
     public function render()
     {
         $category = EventCategory::where('slug', $this->slug)->first();
-        $events = Event::orderByDesc('created_at')->where('category_id', $category->id)->paginate(12);
+        $events = Event::orderByDesc('created_at')->where('cat_id', $category->id)->paginate(12);
         return view('livewire.events.events-per-category', ['events' => $events])->layout('layouts.app');
     }
 }
