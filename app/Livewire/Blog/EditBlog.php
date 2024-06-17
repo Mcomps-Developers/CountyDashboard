@@ -40,7 +40,7 @@ class EditBlog extends Component
 
     public function updateBlog()
     {
-        $blog = BlogCategory::where('reference', $this->reference)->first();
+        $blog = Blog::where('reference', $this->reference)->first();
         $this->validate();
         if ($this->photo) {
             $this->validate([
