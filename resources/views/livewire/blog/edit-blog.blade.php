@@ -14,7 +14,7 @@
             </div>
 
             <div class="card">
-                <form wire:submit.prevent="addSpeech">
+                <form wire:submit.prevent="updateBlog">
                     <div class="card-body">
                         <div class="bank-inner-details">
 
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <label>Actual Date</span></label>
+                                        <label>Scheduled on</span></label>
                                         <input type="date" class="form-control" wire:model.live='publishing_date'>
                                         @error('publishing_date')
                                             <p class="text text-danger">{{ $message }}</p>

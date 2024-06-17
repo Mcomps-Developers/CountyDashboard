@@ -38,9 +38,9 @@ class EditBlog extends Component
 
     }
 
-    public function addSpeech()
+    public function updateBlog()
     {
-        $category = BlogCategory::where('slug', $this->slug)->first();
+        $blog = BlogCategory::where('slug', $this->slug)->first();
         $this->validate();
         if ($this->photo) {
             $this->validate([
