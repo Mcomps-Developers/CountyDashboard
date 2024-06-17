@@ -88,7 +88,7 @@
                                     style="text-transform: capitalize"
                                     title="{{ $item->name }}">{{ $item->name }}</a></li>
                         @endforeach
-                        <li><a href="{{ route('blog.categories') }}">Categories</a></li>
+                        <li><a href="{{ route('events.categories') }}">Categories</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
