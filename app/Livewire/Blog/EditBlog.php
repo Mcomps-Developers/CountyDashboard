@@ -58,7 +58,6 @@ class EditBlog extends Component
             $blog->content = $this->content;
             $blog->tags = $this->tags;
             $blog->created_at = empty($this->publishing_date) ? Carbon::now() : $this->publishing_date;
-            $blog->reference = $this->generateUniqueReference(Blog::class, 'reference', 5);
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
                 $resizedImage = Image::read($this->photo->getRealPath())->resize(1200, 800);
