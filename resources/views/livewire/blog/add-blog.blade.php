@@ -98,7 +98,7 @@
                     </div>
                     <div class="pt-0 blog-categories-btn">
                         <div class="bank-details-btn ">
-                            <button type="submit" class="btn bank-cancel-btn me-2">Add Speech</button>
+                            <button type="submit" class="btn bank-cancel-btn me-2">Save</button>
                         </div>
                     </div>
                 </form>

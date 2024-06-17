@@ -98,7 +98,7 @@
                     </div>
                     <div class="pt-0 blog-categories-btn">
                         <div class="bank-details-btn ">
-                            <button type="submit" class="btn bank-cancel-btn me-2">Update</button>
+                            <button type="submit" class="btn bank-cancel-btn me-2">Save Changes</button>
                         </div>
                     </div>
                 </form>
