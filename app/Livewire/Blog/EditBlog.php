@@ -16,6 +16,7 @@ class EditBlog extends Component
     public $tags;
     public $publishing_date;
     public $image;
+    public $photo;
     public function mount($reference)
     {
         $this->reference = $reference;
