@@ -13,6 +13,6 @@ class Event extends Model
 
     public function category()
     {
-        return $this->belongsTo(EventCategory::class, 'category_id');
+        return $this->belongsTo(EventCategory::class, 'cat_id');
     }
 }
