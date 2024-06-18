@@ -23,6 +23,7 @@ class AddEvent extends Component
     public $end_date_and_time;
     public $categoryName;
     public $featured;
+    public $location;
 
 
     public function mount($slug)
