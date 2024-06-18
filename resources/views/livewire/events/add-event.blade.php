@@ -31,7 +31,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>Start Date & Time<span class="text-danger">*</span></label>
-                                        <input type="date" class="form-control"
+                                        <input type="datetime-local" class="form-control"
                                             wire:model.live='start_date_and_time'>
                                         @error('start_date_and_time')
                                             <p class="text text-danger">{{ $message }}</p>
@@ -41,7 +41,7 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <label>End Date & Time<span class="text-danger">*</span></label>
-                                        <input type="date" class="form-control" wire:model.live='end_date_and_time'>
+                                        <input type="datetime-local" class="form-control" wire:model.live='end_date_and_time'>
                                         @error('end_date_and_time')
                                             <p class="text text-danger">{{ $message }}</p>
                                         @enderror
