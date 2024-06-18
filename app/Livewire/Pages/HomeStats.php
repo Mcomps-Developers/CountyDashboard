@@ -14,7 +14,7 @@ class HomeStats extends Component
     public function mount()
     {
         $stat = ModelsHomeStats::first();
-        $this->population->$stat->population;
+        $this->population = $stat->population;
         $this->land_coverage = $stat->land_coverage;
     }
     public $rules = [
@@ -30,16 +30,14 @@ class HomeStats extends Component
     {
         $this->validate();
         try {
-            $category = ModelsHomeStats::first();
-            $category->population = $this->population;
-            $category->land_coverage = $this->land_coverage;
-            $category->save();
-            $this->reset();
+            $stat = ModelsHomeStats::first();
+            $stat->population = $this->population;
+            $stat->land_coverage = $this->land_coverage;
+            $stat->save();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->success('Changes saved');
-
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
