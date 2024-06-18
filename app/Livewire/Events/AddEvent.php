@@ -20,7 +20,7 @@ class AddEvent extends Component
     public $title;
     public $coverPhoto;
     public $start_date_and_time;
-    public $duration;
+    public $end_date_and_time;
     public $categoryName;
     public $featured;
 
@@ -37,7 +37,7 @@ class AddEvent extends Component
         'description' => 'required',
         'title' => 'required',
         'start_date_and_time' => 'required',
-        'duration' => 'required',
+        'end_date_and_time' => 'required',
         'location' => 'required',
     ];
 
@@ -78,7 +78,7 @@ class AddEvent extends Component
             $event->location = $this->location;
             $event->featured = $this->featured;
             $event->start_date_and_time = $this->start_date_and_time;
-            $event->end_date_and_time = Carbon::parse($this->start_date_and_time)->addHours((int)$this->duration);
+            $event->end_date_and_time = $this->end_date_and_time;
             $event->user_id = Auth::id();
             $event->cat_id = $category->id;
             $event->reference = $this->generateUniqueReference(Event::class, 'reference', 5);
