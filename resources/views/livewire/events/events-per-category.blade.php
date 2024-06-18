@@ -26,8 +26,8 @@
                             <div class="col-auto text-end float-end ms-auto download-grp">
                                 <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i>
                                     Download</a>
-                                <a href="{{ route('event.add', ['slug' => $category->name]) }}" class="btn btn-primary"><i
-                                        class="fas fa-plus"></i></a>
+                                <a href="{{ route('event.add', ['slug' => $category->name]) }}"
+                                    class="btn btn-primary"><i class="fas fa-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,11 @@
                                         <td>{{ $item->location }}</td>
                                         <td>{{ date('d M Y h:iA', strtotime($item->start_date_and_time)) }}</td>
                                         <td>{{ date('d M Y h:iA', strtotime($item->end_date_and_time)) }}</td>
-                                        <td></td>
+                                        <td>
+                                            <a href="{{ route('event.edit', ['reference' => $item->reference]) }}">
+                                                <i class="fa fa-edit text-primary"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

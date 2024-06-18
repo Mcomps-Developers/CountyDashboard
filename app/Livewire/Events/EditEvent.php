@@ -3,16 +3,14 @@
 namespace App\Livewire\Events;
 
 use App\Models\Event;
-use App\Models\EventCategory;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class AddEvent extends Component
+class EditEvent extends Component
 {
     use WithFileUploads;
     public $slug;
@@ -25,12 +23,17 @@ class AddEvent extends Component
     public $featured;
     public $location;
 
-
-    public function mount($slug)
+    public $reference;
+    public function mount($reference)
     {
-        $this->slug = $slug;
-        $category = EventCategory::where('slug', $this->slug)->first();
-        $this->categoryName = $category->name;
+        $this->reference = $reference;
+        $event = Event::where('reference', $this->reference)->first();
+        $event->title = $this->title;
+        $this->description = $event->description;
+        $this->location = $event->location;
+        $this->featured = $event->featured;
+        $this->start_date_and_time = $event->start_date_and_time;
+        $this->end_date_and_time = $event->end_date_and_time;
 
     }
     public $rules = [
@@ -46,19 +49,9 @@ class AddEvent extends Component
         $this->validateOnly($fields);
 
     }
-
-    private function generateUniqueReference($model, $column, $length = 5)
-    {
-        do {
-            $reference = Str::random($length);
-            $exists = $model::where($column, $reference)->exists();
-        } while ($exists);
-
-        return $reference;
-    }
     public function saveChanges()
     {
-        $category = EventCategory::where('slug', $this->slug)->first();
+        $event = Event::where('reference', $this->reference)->first();
         $this->validate();
         if ($this->coverPhoto) {
             $this->validate([
@@ -66,7 +59,7 @@ class AddEvent extends Component
             ]);
         }
         try {
-            $event = new Event();
+            $event = Event::where('reference', $this->reference)->first();
             $event->title = $this->title;
             $event->description = $this->description;
             $event->slug = Str::slug($this->title, '-');
@@ -74,9 +67,6 @@ class AddEvent extends Component
             $event->featured = $this->featured;
             $event->start_date_and_time = $this->start_date_and_time;
             $event->end_date_and_time = $this->end_date_and_time;
-            $event->user_id = Auth::id();
-            $event->cat_id = $category->id;
-            $event->reference = $this->generateUniqueReference(Event::class, 'reference', 5);
             if ($this->coverPhoto) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->coverPhoto->extension();
                 $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(1200, 800);
@@ -120,6 +110,7 @@ class AddEvent extends Component
     }
     public function render()
     {
-        return view('livewire.events.add-event')->layout('layouts.app');
+        $event = Event::where('reference', $this->reference)->first();
+        return view('livewire.events.edit-event', ['event' => $event])->layout('layout.app');
     }
 }

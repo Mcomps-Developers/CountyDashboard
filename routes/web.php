@@ -7,6 +7,7 @@ use App\Livewire\Blog\BlogCategory;
 use App\Livewire\Blog\EditBlog;
 use App\Livewire\Events\AddEvent;
 use App\Livewire\Events\AddEventCategory;
+use App\Livewire\Events\EditEvent;
 use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
@@ -28,6 +29,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/category/{slug}', EventsPerCategory::class)->name('events.category');
         Route::get('/add-category', AddEventCategory::class)->name('event.category.add');
         Route::get('/category/{slug}/add', AddEvent::class)->name('event.add');
+        Route::get('/edit/{reference}', EditEvent::class)->name('event.edit');
     });
 });
 
