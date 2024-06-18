@@ -28,7 +28,7 @@ class EditEvent extends Component
     {
         $this->reference = $reference;
         $event = Event::where('reference', $this->reference)->first();
-        $event->title = $this->title;
+        $this->title = $event->title;
         $this->description = $event->description;
         $this->location = $event->location;
         $this->featured = $event->featured;
