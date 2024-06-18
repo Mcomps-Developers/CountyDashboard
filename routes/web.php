@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/categories', EventCategories::class)->name('events.categories');
         Route::get('/category/{slug}', EventsPerCategory::class)->name('events.category');
         Route::get('/add-category', AddEventCategory::class)->name('event.category.add');
-        Route::get('/add', AddEvent::class)->name('event.add');
+        Route::get('/category/{slug}/add', AddEvent::class)->name('event.add');
     });
 });
 
