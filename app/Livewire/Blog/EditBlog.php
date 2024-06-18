@@ -7,9 +7,11 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Intervention\Image\Laravel\Facades\Image;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class EditBlog extends Component
 {
+    use WithFileUploads;
     public $reference;
     public $title;
     public $content;
