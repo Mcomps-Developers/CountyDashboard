@@ -111,6 +111,6 @@ class EditEvent extends Component
     public function render()
     {
         $event = Event::where('reference', $this->reference)->first();
-        return view('livewire.events.edit-event', ['event' => $event])->layout('layout.app');
+        return view('livewire.events.edit-event', ['event' => $event])->layout('layouts.app');
     }
 }
