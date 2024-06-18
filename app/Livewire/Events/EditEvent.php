@@ -79,7 +79,7 @@ class EditEvent extends Component
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Created successfuly.');
+                ->success('Changes saved successfuly.');
             return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
