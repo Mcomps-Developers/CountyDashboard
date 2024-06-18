@@ -26,7 +26,7 @@ class HomeStats extends Component
         $this->validateOnly($fields);
     }
 
-    public function addCategory()
+    public function saveChanges()
     {
         $this->validate();
         try {
