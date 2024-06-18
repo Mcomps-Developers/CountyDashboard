@@ -110,17 +110,8 @@
                 <li class="menu-title">
                     <span>Pages</span>
                 </li>
-                <li class="menu-title">
-                    <span>Others</span>
-                </li>
                 <li>
-                    <a href="sports.html"><i class="fas fa-baseball-ball"></i> <span>Sports</span></a>
-                </li>
-                <li>
-                    <a href="hostel.html"><i class="fas fa-hotel"></i> <span>Hostel</span></a>
-                </li>
-                <li>
-                    <a href="transport.html"><i class="fas fa-bus"></i> <span>Transport</span></a>
+                    <a href="{{ route('stats') }}"><i class="fas fa-baseball-ball"></i> <span>Home Stats</span></a>
                 </li>
             </ul>
         </div>

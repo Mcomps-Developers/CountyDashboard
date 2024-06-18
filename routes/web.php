@@ -11,6 +11,7 @@ use App\Livewire\Events\EditEvent;
 use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
+use App\Livewire\Pages\HomeStats;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
@@ -31,5 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/category/{slug}/add', AddEvent::class)->name('event.add');
         Route::get('/edit/{reference}', EditEvent::class)->name('event.edit');
     });
+
+    Route::get('/stats',HomeStats::class)->name('stats');
 });
 
