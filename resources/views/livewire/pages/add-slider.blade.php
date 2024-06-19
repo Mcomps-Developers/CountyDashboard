@@ -99,7 +99,7 @@
                                             @else
                                                 <p>Upload Slider Photo</p>
                                             @endif
-                                            <small>Will automatically be resized to 1200x800 pixels.</small>
+                                            <small>Will automatically be resized to 1920x1080 resolution.</small>
                                             <br>
                                             <p wire:loading wire:target='image'>Uploading...</p>
                                         </div>
