@@ -18,6 +18,7 @@ class HomeWelcome extends Component
     public $designation;
     public $photo;
     public $quoted_text;
+    public $currentPhoto;
     public function mount()
     {
         $note = WelcomeNote::first();
@@ -26,6 +27,7 @@ class HomeWelcome extends Component
         $this->name = $note->name;
         $this->designation = $note->designation;
         $this->quoted_text = $note->quoted_text;
+        $this->currentPhoto = $note->photo;
     }
 
     protected $rules = [

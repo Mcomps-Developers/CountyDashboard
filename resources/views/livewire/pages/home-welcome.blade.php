@@ -1,5 +1,7 @@
 <div class="content container-fluid">
+    @section('title')
     Welcome Message
+    @endsection
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col-sm-12">
@@ -32,7 +34,7 @@
                             <div class="col-12 col-sm-3">
                                 <div class="form-group local-forms">
                                     <label>Full Name <span class="login-danger">*</span></label>
-                                    <input class="form-control" type="text" pwire:model.live='name'>
+                                    <input class="form-control" type="text" wire:model.live='name'>
                                     @error('name')
                                         <p class="text text-danger">{{ $message }}</p>
                                     @enderror
@@ -59,7 +61,7 @@
                             <div class="col-12 col-sm-12">
                                 <div class="form-group local-forms" wire:ignore>
                                     <label>Message </label>
-                                    <textarea class="form-control" placeholder="Welcome message" wire:model.live='message'></textarea>
+                                    <textarea class="form-control" wire:model.live='message'></textarea>
                                 </div>
                                 @error('message')
                                     <p class="text text-danger">{{ $message }}</p>
@@ -78,6 +80,14 @@
                                     @enderror
                                 </div>
                             </div>
+                            @if ($this->photo)
+                                <div class="col-12 col-sm-4">
+                                    <img src="{{ $photo->temporaryUrl() }}" width="100" height="150">
+                                </div>
+                            @else
+                                <img src="{{ asset('assets/img/governors') }}/{{ $currentPhoto }}" width="100"
+                                    height="150">
+                            @endif
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-primary">Save Changes</button>
