@@ -24,7 +24,7 @@ class AddSlider extends Component
         'title' => 'required',
         'start_date' => 'required|date',
         'end_date' => 'required|date',
-        'image' => 'mimes:png,jpg,jpeg|max:5120',
+        'image' => 'required|mimes:png,jpg,jpeg|max:5120',
         'status'=>'required',
     ];
 
