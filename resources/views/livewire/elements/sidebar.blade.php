@@ -48,21 +48,6 @@
                         <li><a href="invoices-settings.html">Invoices Settings</a></li>
                     </ul>
                 </li>
-                <li class="menu-title">
-                    <span>Management</span>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fas fa-file-invoice-dollar"></i> <span> Accounts</span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="fees-collections.html">Fees Collection</a></li>
-                        <li><a href="expenses.html">Expenses</a></li>
-                        <li><a href="salary.html">Salary</a></li>
-                        <li><a href="add-fees-collection.html">Add Fees</a></li>
-                        <li><a href="add-expenses.html">Add Expenses</a></li>
-                        <li><a href="add-salary.html">Add Salary</a></li>
-                    </ul>
-                </li>
                 <li>
                     <a href="holiday.html"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
                 </li>
@@ -71,9 +56,6 @@
                 </li>
                 <li>
                     <a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
-                </li>
-                <li>
-                    <a href="time-table.html"><i class="fas fa-table"></i> <span>Time Table</span></a>
                 </li>
                 <li>
                     <a href="{{ route('home.welcome') }}"><i class="fas fa-book"></i> <span>Welcome Note</span></a>
@@ -109,6 +91,9 @@
                 </li>
                 <li class="menu-title">
                     <span>Pages</span>
+                </li>
+                <li>
+                    <a href="time-table.html"><i class="fas fa-image"></i> <span>Home Slider</span></a>
                 </li>
                 <li>
                     <a href="{{ route('stats') }}"><i class="fas fa-baseball-ball"></i> <span>Home Stats</span></a>
