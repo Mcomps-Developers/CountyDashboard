@@ -60,7 +60,7 @@ class HomeWelcome extends Component
             $note->designation = $this->designation;
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                $resizedImage = Image::read($this->photo->getRealPath())->resize(1200, 1400);
+                $resizedImage = Image::read($this->photo->getRealPath())->resize(1200, 1600);
                 $destinationPath = base_path('assets/img/governors');
                 $resizedImage->save($destinationPath . '/' . $photoName);
                 $note->photo = $photoName;
