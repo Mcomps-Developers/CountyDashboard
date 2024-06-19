@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-12 col-sm-12">
                                 <div class="form-group">
-                                    <label>Paragraph Text</label>
+                                    <label>Paragraph Text (Optional)</label>
                                     <textarea name="" id="" cols="15" rows="3" class="form-control"
                                         wire:model.live='paragraph_text'></textarea>
                                     @error('paragraph_text')
@@ -56,7 +56,7 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Button Text</label>
+                                    <label>Button Text (Optional)</label>
                                     <input type="text" class="form-control" wire:model.live='button_text'>
                                     @error('button_text')
                                         <p class="text-danger">{{ $message }}</p>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
-                                    <label>Button URL</label>
+                                    <label>Button URL (Optional)*</label>
                                     <input type="url" class="form-control" wire:model.live='button_url'>
                                     @error('button_url')
                                         <p class="text-danger">{{ $message }}</p>
