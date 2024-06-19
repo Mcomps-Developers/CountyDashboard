@@ -63,7 +63,7 @@ class HomeWelcome extends Component
                 $resizedImage = Image::read($this->photo->getRealPath())->resize(1200, 800);
                 $destinationPath = base_path('assets/img/governors');
                 $resizedImage->save($destinationPath . '/' . $photoName);
-                $note->image = $photoName;
+                $note->photo = $photoName;
             }
             $note->save();
             notyf()
