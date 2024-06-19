@@ -62,7 +62,7 @@ class AddSlider extends Component
             $slider->reference = $this->generateUniqueReference(Slider::class, 'reference', 5);
             if ($this->image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
+                $resizedImage = Image::read($this->photo->getRealPath())->resize(5760, 3240);
                 $destinationPath = base_path('assets/img/sliders');
                 $resizedImage->save($destinationPath . '/' . $photoName);
                 $slider->image = $photoName;
