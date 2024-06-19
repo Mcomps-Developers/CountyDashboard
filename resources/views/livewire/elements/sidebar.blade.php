@@ -76,7 +76,7 @@
                     <a href="time-table.html"><i class="fas fa-table"></i> <span>Time Table</span></a>
                 </li>
                 <li>
-                    <a href="library.html"><i class="fas fa-book"></i> <span>Library</span></a>
+                    <a href="{{ route('home.welcome') }}"><i class="fas fa-book"></i> <span>Welcome Note</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-calendar-day"></i> <span> Events</span>
