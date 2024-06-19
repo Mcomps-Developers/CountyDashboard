@@ -11,7 +11,7 @@ class HomeSliders extends Component
     use WithPagination;
     public function render()
     {
-        $sliders = Slider::orderBy('created_at')->paginate(12);
+        $sliders = Slider::orderByDesc('created_at')->paginate(12);
         return view('livewire.pages.home-sliders', ['sliders' => $sliders])->layout('layouts.app');
     }
 }
