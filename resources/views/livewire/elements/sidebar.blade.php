@@ -93,7 +93,7 @@
                     <span>Pages</span>
                 </li>
                 <li>
-                    <a href="time-table.html"><i class="fas fa-image"></i> <span>Home Slider</span></a>
+                    <a href="{{ route('home.sliders') }}"><i class="fas fa-image"></i> <span>Home Slider</span></a>
                 </li>
                 <li>
                     <a href="{{ route('stats') }}"><i class="fas fa-baseball-ball"></i> <span>Home Stats</span></a>
