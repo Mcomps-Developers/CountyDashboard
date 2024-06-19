@@ -26,31 +26,31 @@
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
                                     <label>Title <span class="login-danger">*</span></label>
-                                    <input class="form-control" type="text" placeholder="Enter First Name">
+                                    <input class="form-control" type="text" wire:model.live='title'>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-3">
                                 <div class="form-group local-forms">
                                     <label>Full Name <span class="login-danger">*</span></label>
-                                    <input class="form-control" type="text" placeholder="Enter First Name">
+                                    <input class="form-control" type="text" pwire:model.live='name'>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-3">
                                 <div class="form-group local-forms">
                                     <label>Designation <span class="login-danger">*</span></label>
-                                    <input class="form-control" type="text" placeholder="Enter First Name">
+                                    <input class="form-control" type="text" wire:model.live='designation'>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12">
                                 <div class="form-group local-forms">
-                                    <label>Quoted Text </label>
-                                    <textarea class="form-control" placeholder="Quoted message"></textarea>
+                                    <label>Quoted Message </label>
+                                    <textarea class="form-control" placeholder="Will appear in quote" wire:model.live='quoted_text'></textarea>
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-4">
+                            <div class="col-12 col-sm-12">
                                 <div class="form-group local-forms">
                                     <label>Message </label>
-                                    <textarea class="form-control" placeholder="Quoted message"></textarea>
+                                    <textarea class="form-control" placeholder="Welcome message" wire:model.live='message'></textarea>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-4">
@@ -58,7 +58,7 @@
                                     <label>Upload Photo (600 X 650)</label>
                                     <div class="uplod">
                                         <label class="mb-0 file-upload image-upbtn">
-                                            Upload Current Photo <input type="file">
+                                            Upload Current Photo <input type="file" wire:model.live='photo'>
                                         </label>
                                     </div>
                                 </div>
