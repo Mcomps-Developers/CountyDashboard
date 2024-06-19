@@ -25,7 +25,7 @@ class AddSlider extends Component
         'start_date' => 'required|date',
         'end_date' => 'required|date',
         'image' => 'required|mimes:png,jpg,jpeg|max:5120',
-        'status'=>'required',
+        'status' => 'required',
     ];
 
     public function updated($fields)
@@ -46,9 +46,9 @@ class AddSlider extends Component
     public function saveChanges()
     {
         $this->validate();
-        if ($this->button_url) {
+        if ($this->button_text) {
             $this->validate([
-                'button_url' => 'url',
+                'button_url' => 'required|url',
             ]);
         }
         try {
