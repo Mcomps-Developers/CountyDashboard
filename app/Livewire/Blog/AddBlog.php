@@ -31,7 +31,7 @@ class AddBlog extends Component
 
     }
     public $tags;
-    public $rules = [
+    protected $rules = [
         'content' => 'required',
         'title' => 'required',
     ];

@@ -1,37 +1,30 @@
 <?php
 
-namespace App\Livewire\Blog;
+namespace App\Livewire\Pages;
 
-use App\Models\Blog;
+use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
-use Livewire\Features\SupportFileUploads\WithFileUploads;
 
-class EditBlog extends Component
+class AddSlider extends Component
 {
-    use WithFileUploads;
-    public $reference;
     public $title;
-    public $content;
-    public $tags;
-    public $publishing_date;
+    public $paragraph_text;
+    public $button_text;
+    public $button_url;
     public $image;
-    public $photo;
-    private $slug;
-    public function mount($reference)
-    {
-        $this->reference = $reference;
-        $blog = Blog::where('reference', $this->reference)->first();
-        $this->title = $blog->title;
-        $this->content = $blog->content;
-        $this->tags = $blog->tags;
-        $this->publishing_date = $blog->created_at;
-    }
+    public $start_date;
+    public $end_date;
+    public $status;
+
     protected $rules = [
-        'content' => 'required',
         'title' => 'required',
+        'start_date' => 'required|date',
+        'end_date' => 'required|date',
+        'image' => 'mimes:png,jpg,jpeg|max:5120',
     ];
 
     public function updated($fields)
@@ -40,39 +33,45 @@ class EditBlog extends Component
 
     }
 
-    public function updateBlog()
+    private function generateUniqueReference($model, $column, $length = 5)
     {
-        $blog = Blog::where('reference', $this->reference)->first();
+        do {
+            $reference = Str::random($length);
+            $exists = $model::where($column, $reference)->exists();
+        } while ($exists);
+
+        return $reference;
+    }
+    public function saveChanges()
+    {
         $this->validate();
-        if ($this->photo) {
+        if ($this->button_url) {
             $this->validate([
-                'photo' => 'mimes:png,jpg,jpeg|max:5120',
-            ]);
-        }
-        if ($this->publishing_date) {
-            $this->validate([
-                'publishing_date' => 'date',
+                'button_url' => 'url',
             ]);
         }
         try {
-            $blog = Blog::where('reference', $this->reference)->first();
-            $blog->title = $this->title;
-            $blog->content = $this->content;
-            $blog->tags = $this->tags;
-            $blog->created_at = empty($this->publishing_date) ? Carbon::now() : $this->publishing_date;
-            if ($this->photo) {
+            $slider = new Slider();
+            $slider->heading = $this->title;
+            $slider->start_date = $this->start_date;
+            $slider->end_date = $this->end_date;
+            $slider->paragraph_text = $this->paragraph_text;
+            $slider->button_url = $this->button_url;
+            $slider->button_text = $this->button_text;
+            $slider->status = $this->status;
+            $slider->reference = $this->generateUniqueReference(Slider::class, 'reference', 5);
+            if ($this->image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
                 $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
-                $destinationPath = base_path('assets/img/blogs');
+                $destinationPath = base_path('assets/img/sliders');
                 $resizedImage->save($destinationPath . '/' . $photoName);
-                $blog->image = $photoName;
+                $slider->image = $photoName;
             }
-            $blog->save();
-            $this->reset();
+            $slider->save();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Updated successfuly.');
+                ->success('Created successfully.');
             return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
@@ -103,7 +102,6 @@ class EditBlog extends Component
     }
     public function render()
     {
-
-        return view('livewire.blog.edit-blog')->layout('layouts.app');
+        return view('livewire.pages.add-slider')->layout('layouts.app');
     }
 }
