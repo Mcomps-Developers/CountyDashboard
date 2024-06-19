@@ -25,43 +25,107 @@
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" wire:model.live='title'>
+                                    @error('title')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Status</label>
-                                    <select class="form-control select">
+                                    <select class="form-control select" wire:model.live='status'>
                                         <option>Select Class</option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>
                                     </select>
+                                    @error('status')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12">
                                 <div class="form-group">
                                     <label>Paragraph Text</label>
-                                    <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                                    <textarea name="" id="" cols="15" rows="3" class="form-control"
+                                        wire:model.live='paragraph_text'></textarea>
+                                    @error('paragraph_text')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Button Text</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" wire:model.live='button_text'>
+                                    @error('button_text')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Button URL</label>
+                                    <input type="url" class="form-control" wire:model.live='button_url'>
+                                    @error('button_url')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Start Date</label>
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" wire:model.live='start_date'>
+                                    @error('start_date')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>End Date</label>
-                                    <input type="date" class="form-control">
+                                    <input type="date" class="form-control" wire:model.live='end_date'>
+                                    @error('end_date')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <div class="change-photo-btn">
+                                        <div>
+                                            @if ($image)
+                                                <p>Change Slider Photo</p>
+                                            @else
+                                                <p>Upload Slider Photo</p>
+                                            @endif
+                                            <small>Will automatically be resized to 1200x800 pixels.</small>
+                                            <br>
+                                            <p wire:loading wire:target='image'>Uploading...</p>
+                                        </div>
+                                        <input type="file" class="upload" wire:model.live='image'>
+                                    </div>
+                                    @error('image')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            @if ($image)
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-photo-btn">
+                                            <div>
+                                                @if ($image)
+                                                    <img src="{{ $image->temporaryUrl() }}" width="90"
+                                                        height="60" alt="">
+                                                @else
+                                                    <p>No slider photo has been uploaded</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Save Changes</button>
                             </div>
