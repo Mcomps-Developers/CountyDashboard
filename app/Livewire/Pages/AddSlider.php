@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Intervention\Image\Laravel\Facades\Image;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class AddSlider extends Component
 {
+    use WithFileUploads;
     public $title;
     public $paragraph_text;
     public $button_text;
