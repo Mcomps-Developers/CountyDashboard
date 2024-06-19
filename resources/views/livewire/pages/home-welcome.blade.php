@@ -1,6 +1,6 @@
 <div class="content container-fluid">
     @section('title')
-    Welcome Message
+        Welcome Message
     @endsection
     <div class="page-header">
         <div class="row align-items-center">
@@ -85,8 +85,10 @@
                                     <img src="{{ $photo->temporaryUrl() }}" width="100" height="150">
                                 </div>
                             @else
-                                <img src="{{ asset('assets/img/governors') }}/{{ $currentPhoto }}" width="100"
-                                    height="150">
+                                <div class="col-12 col-sm-4">
+                                    <img src="{{ asset('assets/img/governors') }}/{{ $currentPhoto }}" width="100"
+                                        height="150">
+                                </div>
                             @endif
                             <div class="col-12">
                                 <div class="student-submit">
