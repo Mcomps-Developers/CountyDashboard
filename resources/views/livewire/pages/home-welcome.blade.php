@@ -61,7 +61,7 @@
                             <div class="col-12 col-sm-12">
                                 <div class="form-group local-forms" wire:ignore>
                                     <label>Message </label>
-                                    <textarea class="form-control" wire:model.live='message'></textarea>
+                                    <textarea id="message" class="form-control" wire:model.live='message'></textarea>
                                 </div>
                                 @error('message')
                                     <p class="text text-danger">{{ $message }}</p>
