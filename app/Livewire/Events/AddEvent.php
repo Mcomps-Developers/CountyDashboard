@@ -79,7 +79,7 @@ class AddEvent extends Component
             $event->reference = $this->generateUniqueReference(Event::class, 'reference', 5);
             if ($this->coverPhoto) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->coverPhoto->extension();
-                $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(1200, 800);
+                $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(4800, 3200);
                 $destinationPath = base_path('assets/img/events');
                 $resizedImage->save($destinationPath . '/' . $photoName);
                 $event->image = $photoName;

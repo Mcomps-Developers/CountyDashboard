@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-12 col-sm-4">
                                 <div class="form-group students-up-files">
-                                    <label>Upload Photo (600 X 800)</label>
+                                    <label>Upload Photo</label>
                                     <div class="uplod">
                                         <label class="mb-0 file-upload image-upbtn">
                                             Upload Current Photo <input type="file" wire:model.live='photo'>

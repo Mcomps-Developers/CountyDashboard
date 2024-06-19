@@ -78,7 +78,7 @@ class AddBlog extends Component
             $blog->reference = $this->generateUniqueReference(Blog::class, 'reference', 5);
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                $resizedImage = Image::read($this->photo->getRealPath())->resize(1200, 800);
+                $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
                 $destinationPath = base_path('assets/img/blogs');
                 $resizedImage->save($destinationPath . '/' . $photoName);
                 $blog->image = $photoName;

@@ -69,7 +69,7 @@ class EditEvent extends Component
             $event->end_date_and_time = $this->end_date_and_time;
             if ($this->coverPhoto) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->coverPhoto->extension();
-                $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(1200, 800);
+                $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(4800, 3200);
                 $destinationPath = base_path('assets/img/events');
                 $resizedImage->save($destinationPath . '/' . $photoName);
                 $event->image = $photoName;
