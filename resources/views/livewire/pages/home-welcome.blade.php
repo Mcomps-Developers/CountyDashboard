@@ -82,12 +82,12 @@
                             </div>
                             @if ($this->photo)
                                 <div class="col-12 col-sm-4">
-                                    <img src="{{ $photo->temporaryUrl() }}" width="100" height="150">
+                                    <img src="{{ $photo->temporaryUrl() }}" width="100" height="200">
                                 </div>
                             @else
                                 <div class="col-12 col-sm-4">
                                     <img src="{{ asset('assets/img/governors') }}/{{ $currentPhoto }}" width="100"
-                                        height="150">
+                                        height="200">
                                 </div>
                             @endif
                             <div class="col-12">
