@@ -43,7 +43,7 @@ class ViewDepartments extends Component
     }
     public function render()
     {
-        $departments = Department::orderby('name')->get();
+        $departments = Department::orderby('title')->get();
         return view('livewire.departments.view-departments', ['departments' => $departments])->layout('layouts.app');
     }
 }
