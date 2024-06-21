@@ -50,7 +50,6 @@ class TheGovernor extends Component
         'main_manifesto' => 'required',
         'date_of_birth' => 'required|date',
         'about' => 'required',
-        'photo' => 'mimes:png,jpg,jpeg|max:5120',
     ];
 
     public function updated($fields)
@@ -69,6 +68,11 @@ class TheGovernor extends Component
         if ($this->twitter) {
             $this->validate([
                 'twitter' => 'url',
+            ]);
+        }
+        if ($this->photo) {
+            $this->validate([
+                'photo' => 'mimes:png,jpg,jpeg|max:5120',
             ]);
         }
         if ($this->linkedin) {
@@ -102,7 +106,7 @@ class TheGovernor extends Component
                 $theGovernor->instagram = $this->instagram;
                 $theGovernor->linkedin = $this->linkedin;
                 $theGovernor->facebook = $this->facebook;
-                 $theGovernor->about = $this->about;
+                $theGovernor->about = $this->about;
                 $theGovernor->office_email = $this->office_email;
                 $theGovernor->office_phone = $this->office_phone;
                 if ($this->photo) {
@@ -118,11 +122,11 @@ class TheGovernor extends Component
                     ->position('y', 'top')
                     ->success('Changes saved successfully.');
                 return redirect(request()->header('Referer'));
-            }else{
+            } else {
                 notyf()
-                ->position('x', 'right')
-                ->position('y', 'top')
-                ->error('Ask admin to run seeders');
+                    ->position('x', 'right')
+                    ->position('y', 'top')
+                    ->error('Ask admin to run seeders');
             }
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
