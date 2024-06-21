@@ -24,6 +24,7 @@ class TheGovernor extends Component
     public $twitter;
     public $instagram;
     public $about;
+    public $currentPhoto;
     public function mount()
     {
         $theGovernor = Governor::first();
@@ -39,6 +40,7 @@ class TheGovernor extends Component
             $this->twitter = $theGovernor->twitter;
             $this->instagram = $theGovernor->instagram;
             $this->about = $theGovernor->about;
+            $this->currentPhoto = $theGovernor->photo;
         }
     }
 
