@@ -121,7 +121,7 @@ class TheGovernor extends Component
                 notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->error('Could not load the first governor');
+                ->error('Ask admin to run seeders');
             }
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
