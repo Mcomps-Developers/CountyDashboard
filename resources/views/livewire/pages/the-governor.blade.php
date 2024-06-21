@@ -37,7 +37,7 @@
                             <div class="col-12 col-sm-3">
                                 <div class="form-group local-forms">
                                     <label>Date of Birth <span class="login-danger">*</span></label>
-                                    <input class="form-control" type="text" wire:model.live='date_of_birth'>
+                                    <input class="form-control" type="date" wire:model.live='date_of_birth'>
                                     @error('date_of_birth')
                                     <p class="text text-danger">{{ $message }}</p>
                                     @enderror
