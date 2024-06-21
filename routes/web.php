@@ -12,6 +12,7 @@ use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
 use App\Livewire\Pages\AddSlider;
+use App\Livewire\Pages\DeputyGovernor;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
@@ -40,7 +41,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/stats', HomeStats::class)->name('stats');
         Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
-        Route::get('/deputy-governor', TheGovernor::class)->name('deputy-governor');
+        Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
     });
 
     Route::prefix('sliders')->group(function () {
