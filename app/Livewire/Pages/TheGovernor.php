@@ -144,6 +144,6 @@ class TheGovernor extends Component
     }
     public function render()
     {
-        return view('livewire.pages.the-governor');
+        return view('livewire.pages.the-governor')->layout('layouts.app');
     }
 }
