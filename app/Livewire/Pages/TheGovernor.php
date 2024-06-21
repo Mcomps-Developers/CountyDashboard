@@ -117,6 +117,11 @@ class TheGovernor extends Component
                     ->position('y', 'top')
                     ->success('Changes saved successfully.');
                 return redirect(request()->header('Referer'));
+            }else{
+                notyf()
+                ->position('x', 'right')
+                ->position('y', 'top')
+                ->error('Could not load the first governor');
             }
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
