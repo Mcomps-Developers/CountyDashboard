@@ -98,7 +98,7 @@
                     <a href="{{ route('home.welcome') }}"><i class="fas fa-book"></i> <span>Welcome Note</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('the-governor') }}"><i class="fas fa-book"></i> <span>The Governor</span></a>
+                    <a href="{{ route('the-governor') }}"><i class="fas fa-user"></i> <span>The Governor</span></a>
                 </li>
             </ul>
         </div>
