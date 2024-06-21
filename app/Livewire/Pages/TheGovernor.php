@@ -45,7 +45,7 @@ class TheGovernor extends Component
     }
 
     protected $rules = [
-        'welcome_message' => 'required|size:255',
+        'welcome_message' => 'required|string|max:255',
         'name' => 'required',
         'main_manifesto' => 'required',
         'date_of_birth' => 'required|date',
