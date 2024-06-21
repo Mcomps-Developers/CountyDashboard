@@ -27,17 +27,19 @@ class TheGovernor extends Component
     public function mount()
     {
         $theGovernor = Governor::first();
-        $this->welcome_message = $theGovernor->welcome_message;
-        $this->name = $theGovernor->name;
-        $this->main_manifesto = $theGovernor->main_manifesto;
-        $this->date_of_birth = $theGovernor->date_of_birth;
-        $this->facebook = $theGovernor->facebook;
-        $this->office_email = $theGovernor->office_email;
-        $this->office_phone = $theGovernor->office_phone;
-        $this->linkedin = $theGovernor->linkedin;
-        $this->twitter = $theGovernor->twitter;
-        $this->instagram = $theGovernor->instagram;
-        $this->about = $theGovernor->about;
+        if ($theGovernor) {
+            $this->welcome_message = $theGovernor->welcome_message;
+            $this->name = $theGovernor->name;
+            $this->main_manifesto = $theGovernor->main_manifesto;
+            $this->date_of_birth = $theGovernor->date_of_birth;
+            $this->facebook = $theGovernor->facebook;
+            $this->office_email = $theGovernor->office_email;
+            $this->office_phone = $theGovernor->office_phone;
+            $this->linkedin = $theGovernor->linkedin;
+            $this->twitter = $theGovernor->twitter;
+            $this->instagram = $theGovernor->instagram;
+            $this->about = $theGovernor->about;
+        }
     }
 
     protected $rules = [
