@@ -15,6 +15,7 @@ use App\Livewire\Pages\AddSlider;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
+use App\Livewire\Pages\TheGovernor;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
@@ -35,14 +36,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/category/{slug}/add', AddEvent::class)->name('event.add');
         Route::get('/edit/{reference}', EditEvent::class)->name('event.edit');
     });
+    Route::prefix('pages')->group(function () {
+        Route::get('/stats', HomeStats::class)->name('stats');
+        Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
+        Route::get('/the-governor', TheGovernor::class)->name('the-governor');
+    });
 
-    Route::get('/stats', HomeStats::class)->name('stats');
-    Route::get('/home-welcome-note', HomeWelcome::class)->name('home.welcome');
     Route::prefix('sliders')->group(function () {
         Route::get('/view', HomeSliders::class)->name('home.sliders');
         Route::get('/add', AddSlider::class)->name('slider.add');
         Route::get('/edit/{reference}', AddSlider::class)->name('slider.edit');
     });
-
 });
-

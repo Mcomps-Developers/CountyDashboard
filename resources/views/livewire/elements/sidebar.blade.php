@@ -57,18 +57,14 @@
                 <li>
                     <a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
                 </li>
-                <li>
-                    <a href="{{ route('home.welcome') }}"><i class="fas fa-book"></i> <span>Welcome Note</span></a>
-                </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-calendar-day"></i> <span> Events</span>
                         <span class="menu-arrow"></span>
                     </a>
                     <ul>
                         @foreach ($eventCategories as $item)
-                            <li><a href="{{ route('events.category', ['slug' => $item->slug]) }}"
-                                    style="text-transform: capitalize"
-                                    title="{{ $item->name }}">{{ $item->name }}</a></li>
+                        <li><a href="{{ route('events.category', ['slug' => $item->slug]) }}"
+                                style="text-transform: capitalize" title="{{ $item->name }}">{{ $item->name }}</a></li>
                         @endforeach
                         <li><a href="{{ route('events.categories') }}">Categories</a></li>
                     </ul>
@@ -79,9 +75,9 @@
                     </a>
                     <ul>
                         @foreach ($categories as $item)
-                            <li><a href="{{ route('blog.category', ['slug' => $item->slug]) }}"
-                                    style="text-transform: capitalize"
-                                    title="{{ $item->description }}">{{ $item->name }}</a></li>
+                        <li><a href="{{ route('blog.category', ['slug' => $item->slug]) }}"
+                                style="text-transform: capitalize" title="{{ $item->description }}">{{ $item->name
+                                }}</a></li>
                         @endforeach
                         <li><a href="{{ route('blog.categories') }}">Categories</a></li>
                     </ul>
@@ -97,6 +93,12 @@
                 </li>
                 <li>
                     <a href="{{ route('stats') }}"><i class="fas fa-baseball-ball"></i> <span>Home Stats</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('home.welcome') }}"><i class="fas fa-book"></i> <span>Welcome Note</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('the-governor') }}"><i class="fas fa-book"></i> <span>The Governor</span></a>
                 </li>
             </ul>
         </div>
