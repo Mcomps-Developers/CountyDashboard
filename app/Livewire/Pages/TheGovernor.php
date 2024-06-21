@@ -45,7 +45,7 @@ class TheGovernor extends Component
     }
 
     protected $rules = [
-        'welcome_message' => 'required|string|max:255',
+        'welcome_message' => 'required|string|max:750',
         'name' => 'required',
         'main_manifesto' => 'required',
         'date_of_birth' => 'required|date',
@@ -102,6 +102,7 @@ class TheGovernor extends Component
                 $theGovernor->instagram = $this->instagram;
                 $theGovernor->linkedin = $this->linkedin;
                 $theGovernor->facebook = $this->facebook;
+                 $theGovernor->about = $this->about;
                 $theGovernor->office_email = $this->office_email;
                 $theGovernor->office_phone = $this->office_phone;
                 if ($this->photo) {

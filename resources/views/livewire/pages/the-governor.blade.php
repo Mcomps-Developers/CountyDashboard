@@ -53,14 +53,14 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12">
-                                <div class="form-group local-forms">
+                                <div class="form-group local-forms" wire:ignore>
                                     <label>Welcome Message </label>
-                                    <textarea class="form-control" placeholder="Will appear in quote"
-                                        wire:model.live='welcome_message'></textarea>
-                                    @error('welcome_message')
-                                    <p class="text text-danger">{{ $message }}</p>
-                                    @enderror
+                                    <textarea class="form-control" id="welcome_message"
+                                        placeholder="Will appear in quote" wire:model.live='welcome_message'></textarea>
                                 </div>
+                                @error('welcome_message')
+                                <p class="text text-danger">{{ $message }}</p>
+                                @enderror
                             </div>
                             <div class="col-12 col-sm-12">
                                 <div class="form-group local-forms" wire:ignore>
@@ -175,6 +175,18 @@
                         tinymce.triggerSave();
                         var sd_data = $('#about').val();
                         @this.set('about', sd_data);
+                    });
+                }
+            });
+            tinymce.init({
+                selector: '#welcome_message',
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                setup: function(editor) {
+                    editor.on('Change', function(e) {
+                        tinymce.triggerSave();
+                        var sd_data = $('#welcome_message').val();
+                        @this.set('welcome_message', sd_data);
                     });
                 }
             });

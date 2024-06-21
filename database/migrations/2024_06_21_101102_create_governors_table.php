@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('welcome_message');
+            $table->text('welcome_message');
             $table->longText('about')->default('Write about the governor...');
             $table->string('photo');
             $table->timestamps();
