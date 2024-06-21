@@ -109,19 +109,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-12 col-sm-4">
-                                <div class="form-group students-up-files">
-                                    <label>Upload Photo</label>
-                                    <div class="uplod">
-                                        <label class="mb-0 file-upload image-upbtn">
-                                            Upload Current Photo <input type="file" wire:model.live='photo'>
-                                        </label>
-                                    </div>
-                                    @error('photo')
-                                    <p class="text text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
+
                             <div class="col-12 col-sm-6">
                                 <div class="form-group local-forms">
                                     <label>Office Phone Number</span></label>
@@ -136,6 +124,19 @@
                                     <label>Office Email Address</span></label>
                                     <input class="form-control" type="email" wire:model.live='office_email'>
                                     @error('office_email')
+                                    <p class="text text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-4">
+                                <div class="form-group students-up-files">
+                                    <label>Upload Photo</label>
+                                    <div class="uplod">
+                                        <label class="mb-0 file-upload image-upbtn">
+                                            Upload Current Photo <input type="file" wire:model.live='photo'>
+                                        </label>
+                                    </div>
+                                    @error('photo')
                                     <p class="text text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
