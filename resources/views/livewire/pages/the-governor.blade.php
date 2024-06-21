@@ -145,12 +145,10 @@
                                 <img src="{{ $photo->temporaryUrl() }}" width="150" height="200">
                             </div>
                             @else
-                            @if ($theGovernor)
                             <div class="col-12 col-sm-4">
                                 <img src="{{ asset('assets/img/about/governor') }}/{{ $currentPhoto }}" width="150"
                                     height="200">
                             </div>
-                            @endif
                             @endif
                             <div class="col-12">
                                 <div class="student-submit">
