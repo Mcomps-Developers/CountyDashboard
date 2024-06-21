@@ -111,9 +111,8 @@ class TheGovernor extends Component
                 $theGovernor->office_phone = $this->office_phone;
                 if ($this->photo) {
                     $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                    $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
                     $destinationPath = base_path('assets/img/about/governor');
-                    $resizedImage->save($destinationPath . '/' . $photoName);
+                    $this->photo->storeAs($destinationPath, $photoName);
                     $theGovernor->photo = $photoName;
                 }
                 $theGovernor->save();
