@@ -111,8 +111,18 @@ class TheGovernor extends Component
                 $theGovernor->office_phone = $this->office_phone;
                 if ($this->photo) {
                     $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                    $this->photo->storeAs('assets/img/about/governor', $photoName);
-                    $theGovernor->photo = $photoName;
+                    $path = $this->photo->storeAs('assets/img/about/governor', $photoName);
+
+                    if ($path) {
+                        notyf()
+                    ->position('x', 'right')
+                    ->position('y', 'top')
+                    ->info('File stored at: ' . $path);
+                        $theGovernor->photo = $photoName;
+                    } else {
+                        Log::error('File upload failed.');
+                        session()->flash('error', 'File upload failed.');
+                    }
                 }
                 $theGovernor->save();
                 notyf()
