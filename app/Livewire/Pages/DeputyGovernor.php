@@ -107,7 +107,7 @@ class DeputyGovernor extends Component
                 $deputyGovernor->office_phone = $this->office_phone;
                 if ($this->photo) {
                     $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                    $this->photo->storeAs('assets/img/about/governor', $photoName);
+                    $this->photo->storeAs('assets/img/about/deputy-governor', $photoName);
                     $deputyGovernor->photo = $photoName;
                 }
                 $deputyGovernor->save();
