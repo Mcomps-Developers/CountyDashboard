@@ -40,6 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/stats', HomeStats::class)->name('stats');
         Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
+        Route::get('/deputy-governor', TheGovernor::class)->name('deputy-governor');
     });
 
     Route::prefix('sliders')->group(function () {

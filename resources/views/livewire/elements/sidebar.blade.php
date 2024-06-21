@@ -100,6 +100,10 @@
                 <li>
                     <a href="{{ route('the-governor') }}"><i class="fas fa-user"></i> <span>The Governor</span></a>
                 </li>
+                <li>
+                    <a href="{{ route('deputy-governor') }}"><i class="fas fa-user"></i> <span>Deputy
+                            Governor</span></a>
+                </li>
             </ul>
         </div>
     </div>
