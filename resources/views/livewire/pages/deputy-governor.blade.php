@@ -138,7 +138,7 @@
                             </div>
                             @else
                             <div class="col-12 col-sm-4">
-                                <img src="{{ asset('assets/img/about/governor') }}/{{ $currentPhoto }}" width="150"
+                                <img src="{{ asset('assets/img/about/deputy-governor') }}/{{ $currentPhoto }}" width="150"
                                     height="200">
                             </div>
                             @endif
