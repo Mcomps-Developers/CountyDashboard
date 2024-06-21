@@ -28,7 +28,6 @@ class AddBlog extends Component
         $this->slug = $slug;
         $category = BlogCategory::where('slug', $this->slug)->first();
         $this->categoryName = $category->name;
-
     }
     public $tags;
     protected $rules = [
@@ -39,7 +38,6 @@ class AddBlog extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields);
-
     }
 
     private function generateUniqueReference($model, $column, $length = 5)
@@ -51,7 +49,7 @@ class AddBlog extends Component
 
         return $reference;
     }
-    public function addSpeech()
+    public function saveChanges()
     {
         $category = BlogCategory::where('slug', $this->slug)->first();
         $this->validate();
@@ -84,11 +82,10 @@ class AddBlog extends Component
                 $blog->image = $photoName;
             }
             $blog->save();
-            $this->reset();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Created successfuly.');
+                ->success('Created successfully.');
             return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
@@ -115,7 +112,6 @@ class AddBlog extends Component
                 ->error('Error occurred. Try later');
             return redirect(request()->header('Referer'));
         }
-
     }
     public function render()
     {

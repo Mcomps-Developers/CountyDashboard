@@ -5,6 +5,9 @@ use App\Livewire\Blog\AddBlogCategory;
 use App\Livewire\Blog\BlogCategories;
 use App\Livewire\Blog\BlogCategory;
 use App\Livewire\Blog\EditBlog;
+use App\Livewire\Departments\AddDepartment;
+use App\Livewire\Departments\EditDepartment;
+use App\Livewire\Departments\ViewDepartments;
 use App\Livewire\Events\AddEvent;
 use App\Livewire\Events\AddEventCategory;
 use App\Livewire\Events\EditEvent;
@@ -48,5 +51,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/view', HomeSliders::class)->name('home.sliders');
         Route::get('/add', AddSlider::class)->name('slider.add');
         Route::get('/edit/{reference}', AddSlider::class)->name('slider.edit');
+    });
+
+    Route::prefix('departments')->group(function () {
+        Route::get('/view', ViewDepartments::class)->name('departments.view');
+        Route::get('/add', AddDepartment::class)->name('department.add');
+        Route::get('/edit/{slug}', EditDepartment::class)->name('department.edit');
     });
 });

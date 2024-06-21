@@ -5,26 +5,13 @@
                 <li class="active">
                     <a href="/"><i class="feather-grid"></i> <span> Dashboard</span>
                 </li>
-                <li class="menu-title">
-                    <span>News, Speeches & Publications</span>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="teachers.html">Teacher List</a></li>
-                        <li><a href="teacher-details.html">Teacher View</a></li>
-                        <li><a href="add-teacher.html">Teacher Add</a></li>
-                        <li><a href="edit-teacher.html">Teacher Edit</a></li>
-                    </ul>
-                </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="departments.html">Department List</a></li>
+                        <li><a href="{{route('departments.view')}}">All Department</a></li>
+
                         <li><a href="add-department.html">Department Add</a></li>
-                        <li><a href="edit-department.html">Department Edit</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
