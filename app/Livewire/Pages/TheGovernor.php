@@ -93,29 +93,31 @@ class TheGovernor extends Component
         }
         try {
             $theGovernor = Governor::first();
-            $theGovernor->twitter = $this->twitter;
-            $theGovernor->instagram = $this->instagram;
-            $theGovernor->linkedin = $this->linkedin;
-            $theGovernor->facebook = $this->facebook;
-            $theGovernor->office_email = $this->office_email;
-            $theGovernor->office_phone = $this->office_phone;
-            $theGovernor->welcome_message = $this->welcome_message;
-            $theGovernor->name = $this->name;
-            $theGovernor->date_of_birth = $this->date_of_birth;
-            $theGovernor->main_manifesto = $this->main_manifesto;
-            if ($this->photo) {
-                $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
-                $destinationPath = base_path('assets/img/about/governor');
-                $resizedImage->save($destinationPath . '/' . $photoName);
-                $theGovernor->photo = $photoName;
+            if ($theGovernor) {
+                $theGovernor->welcome_message = $this->welcome_message;
+                $theGovernor->name = $this->name;
+                $theGovernor->date_of_birth = $this->date_of_birth;
+                $theGovernor->main_manifesto = $this->main_manifesto;
+                $theGovernor->twitter = $this->twitter;
+                $theGovernor->instagram = $this->instagram;
+                $theGovernor->linkedin = $this->linkedin;
+                $theGovernor->facebook = $this->facebook;
+                $theGovernor->office_email = $this->office_email;
+                $theGovernor->office_phone = $this->office_phone;
+                if ($this->photo) {
+                    $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
+                    $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
+                    $destinationPath = base_path('assets/img/about/governor');
+                    $resizedImage->save($destinationPath . '/' . $photoName);
+                    $theGovernor->photo = $photoName;
+                }
+                $theGovernor->save();
+                notyf()
+                    ->position('x', 'right')
+                    ->position('y', 'top')
+                    ->success('Changes saved successfully.');
+                return redirect(request()->header('Referer'));
             }
-            $theGovernor->save();
-            notyf()
-                ->position('x', 'right')
-                ->position('y', 'top')
-                ->success('Changes saved successfully.');
-            return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
