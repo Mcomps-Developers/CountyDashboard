@@ -64,7 +64,9 @@
                                     </div>
                                 </div>
                                 @endif
-                                <div class="col-lg-3 col-md-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <label>Director Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='director_name'>
@@ -86,7 +88,7 @@
                                 <div class="col-lg-3 col-md-3">
                                     <div class="form-group">
                                         <label>Office Name<span class="text-danger">*</span></label>
-                                        <input type="date" class="form-control" wire:model.live='office_phone'>
+                                        <input type="text" class="form-control" wire:model.live='office_phone'>
                                         @error('office_phone')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
@@ -95,7 +97,7 @@
                                 <div class="col-lg-3 col-md-3">
                                     <div class="form-group">
                                         <label>Office Email<span class="text-danger">*</span></label>
-                                        <input type="date" class="form-control" wire:model.live='office_email'>
+                                        <input type="email" class="form-control" wire:model.live='office_email'>
                                         @error('office_email')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
