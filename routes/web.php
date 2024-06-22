@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/view', ViewDepartments::class)->name('departments.view');
         Route::get('/add', AddDepartment::class)->name('department.add');
         Route::get('/edit/{slug}', EditDepartment::class)->name('department.edit');
-        Route::prefix('directory')->group(function () {
+        Route::prefix('directorate')->group(function () {
             Route::get('/view/{slug}', ShowDirectorates::class)->name('directory.view');
             Route::get('/add/{slug}', AddDirectorates::class)->name('directory.add');
             Route::get('/edit/{id}', EditDirectorates::class)->name('directory.edit');
