@@ -31,7 +31,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="table-responsive">
                         <table
                             class="table mb-0 border-0 star-student table-hover table-center datatable table-striped">
