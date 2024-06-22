@@ -179,8 +179,8 @@
                                 <div class="col-lg-12 col-md-3">
                                     <div class="form-group">
                                         <label>Full Name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" wire:model.live='chief_office_name'>
-                                        @error('chief_office_name')
+                                        <input type="text" class="form-control" wire:model.live='chief_officer_name'>
+                                        @error('chief_officer_name')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -189,8 +189,8 @@
                                     <div class="form-group">
                                         <label>Date of Birth<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control"
-                                            wire:model.live='chief_office_date_of_birth'>
-                                        @error('chief_office_date_of_birth')
+                                            wire:model.live='chief_officer_date_of_birth'>
+                                        @error('chief_officer_date_of_birth')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -199,8 +199,8 @@
                                     <div class="form-group">
                                         <label>Office Phone Number<span class="text-danger">*</span></label>
                                         <input type="tel" class="form-control"
-                                            wire:model.live='chief_office_department_phone'>
-                                        @error('chief_office_department_phone')
+                                            wire:model.live='chief_officer_department_phone'>
+                                        @error('chief_officer_department_phone')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -209,8 +209,8 @@
                                     <div class="form-group">
                                         <label>Office Email<span class="text-danger">*</span></label>
                                         <input type="email" class="form-control"
-                                            wire:model.live='chief_office_department_email'>
-                                        @error('chief_office_department_email')
+                                            wire:model.live='chief_officer_department_email'>
+                                        @error('chief_officer_department_email')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
