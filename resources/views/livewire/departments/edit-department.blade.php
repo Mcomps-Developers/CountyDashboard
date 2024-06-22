@@ -84,7 +84,7 @@
                     <div class="card-body">
                         <div class="bank-inner-details">
                             <div class="row">
-                                <h3 style="margin: 12px">CECM Profile</h3>
+                                <h3>CECM Profile</h3>
                                 <div class="col-lg-12 col-md-3">
                                     <div class="form-group">
                                         <label>Full Name<span class="text-danger">*</span></label>
@@ -176,7 +176,7 @@
                     <div class="card-body">
                         <div class="bank-inner-details">
                             <div class="row">
-                                <h3 style="margin: 12px">Chief Office Profile</h3>
+                                <h3>Chief Officer Profile</h3>
                                 <div class="col-lg-12 col-md-3">
                                     <div class="form-group">
                                         <label>Full Name<span class="text-danger">*</span></label>
