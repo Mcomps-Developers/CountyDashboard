@@ -10,8 +10,9 @@
                             class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{route('departments.view')}}">All Department</a></li>
-
-                        <li><a href="add-department.html">Department Add</a></li>
+                        @foreach ($departments as $item)
+                        <li><a href="{{route('directory.view',['slug'=>$item->slug])}}">{{$item->title}}</a></li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class="submenu">
