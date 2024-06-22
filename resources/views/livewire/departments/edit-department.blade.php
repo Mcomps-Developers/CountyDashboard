@@ -291,14 +291,14 @@
                 }
             });
             tinymce.init({
-                selector: '#about_chief_office',
+                selector: '#about_chief_officer',
                 plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
                 toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
                 setup: function(editor) {
                     editor.on('Change', function(e) {
                         tinymce.triggerSave();
-                        var sd_data = $('#about_chief_office').val();
-                        @this.set('about_chief_office', sd_data);
+                        var sd_data = $('#about_chief_officer').val();
+                        @this.set('about_chief_officer', sd_data);
                     });
                 }
             });

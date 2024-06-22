@@ -53,7 +53,7 @@ class EditDepartment extends Component
 
     protected $rules = [
         // Chief officer
-        'about_chief_officer' => 'nullable|string|max:750',
+        'about_chief_officer' => 'nullable|string|max:1200',
         'chief_officer_department_email' => 'nullable|email',
         'chief_officer_department_phone' => 'nullable|numeric|digits:12',
         'chief_officer_date_of_birth' => 'nullable|date',
