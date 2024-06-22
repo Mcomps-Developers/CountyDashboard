@@ -31,7 +31,6 @@ class AddEvent extends Component
         $this->slug = $slug;
         $category = EventCategory::where('slug', $this->slug)->first();
         $this->categoryName = $category->name;
-
     }
     public $rules = [
         'description' => 'required',
@@ -44,7 +43,6 @@ class AddEvent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields);
-
     }
 
     private function generateUniqueReference($model, $column, $length = 5)
@@ -79,10 +77,8 @@ class AddEvent extends Component
             $event->reference = $this->generateUniqueReference(Event::class, 'reference', 5);
             if ($this->coverPhoto) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->coverPhoto->extension();
-                $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(4800, 3200);
-                $destinationPath = base_path('assets/img/events');
-                $resizedImage->save($destinationPath . '/' . $photoName);
-                $event->image = $photoName;
+                $this->coverPhoto->storeAs('assets/img/events', $photoName);
+                $event->photo = $photoName;
             }
             $event->save();
             $this->reset();
@@ -116,7 +112,6 @@ class AddEvent extends Component
                 ->error('Error occurred. Try later');
             return redirect(request()->header('Referer'));
         }
-
     }
     public function render()
     {

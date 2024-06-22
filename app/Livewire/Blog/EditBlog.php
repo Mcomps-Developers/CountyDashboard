@@ -37,7 +37,6 @@ class EditBlog extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields);
-
     }
 
     public function updateBlog()
@@ -62,10 +61,8 @@ class EditBlog extends Component
             $blog->created_at = empty($this->publishing_date) ? Carbon::now() : $this->publishing_date;
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
-                $resizedImage = Image::read($this->photo->getRealPath())->resize(4800, 3200);
-                $destinationPath = base_path('assets/img/blogs');
-                $resizedImage->save($destinationPath . '/' . $photoName);
-                $blog->image = $photoName;
+                $this->photo->storeAs('assets/img/blogs', $photoName);
+                $blog->photo = $photoName;
             }
             $blog->save();
             $this->reset();
@@ -99,7 +96,6 @@ class EditBlog extends Component
                 ->error('Error occurred. Try later');
             return redirect(request()->header('Referer'));
         }
-
     }
     public function render()
     {

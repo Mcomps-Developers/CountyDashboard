@@ -33,7 +33,6 @@ class AddSlider extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields);
-
     }
 
     private function generateUniqueReference($model, $column, $length = 5)
@@ -65,10 +64,8 @@ class AddSlider extends Component
             $slider->reference = $this->generateUniqueReference(Slider::class, 'reference', 5);
             if ($this->image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->image->extension();
-                $resizedImage = Image::read($this->image->getRealPath())->resize(1920, 810);
-                $destinationPath = base_path('assets/img/sliders');
-                $resizedImage->save($destinationPath . '/' . $photoName);
-                $slider->image = $photoName;
+                $this->image->storeAs('assets/img/sliders', $photoName);
+                $slider->photo = $photoName;
             }
             $slider->save();
             notyf()
@@ -101,7 +98,6 @@ class AddSlider extends Component
                 ->error('Error occurred. Try later');
             return redirect(request()->header('Referer'));
         }
-
     }
     public function render()
     {

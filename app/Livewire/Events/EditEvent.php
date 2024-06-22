@@ -34,7 +34,6 @@ class EditEvent extends Component
         $this->featured = $event->featured;
         $this->start_date_and_time = $event->start_date_and_time;
         $this->end_date_and_time = $event->end_date_and_time;
-
     }
     public $rules = [
         'description' => 'required',
@@ -47,7 +46,6 @@ class EditEvent extends Component
     public function updated($fields)
     {
         $this->validateOnly($fields);
-
     }
     public function saveChanges()
     {
@@ -69,10 +67,8 @@ class EditEvent extends Component
             $event->end_date_and_time = $this->end_date_and_time;
             if ($this->coverPhoto) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->coverPhoto->extension();
-                $resizedImage = Image::read($this->coverPhoto->getRealPath())->resize(4800, 3200);
-                $destinationPath = base_path('assets/img/events');
-                $resizedImage->save($destinationPath . '/' . $photoName);
-                $event->image = $photoName;
+                $this->coverPhoto->storeAs('assets/img/events', $photoName);
+                $event->photo = $photoName;
             }
             $event->save();
             $this->reset();
@@ -106,7 +102,6 @@ class EditEvent extends Component
                 ->error('Error occurred. Try later');
             return redirect(request()->header('Referer'));
         }
-
     }
     public function render()
     {
