@@ -6,6 +6,9 @@ use App\Livewire\Blog\BlogCategories;
 use App\Livewire\Blog\BlogCategory;
 use App\Livewire\Blog\EditBlog;
 use App\Livewire\Departments\AddDepartment;
+use App\Livewire\Departments\Directorates\AddDirectorates;
+use App\Livewire\Departments\Directorates\EditDirectorates;
+use App\Livewire\Departments\Directorates\ShowDirectorates;
 use App\Livewire\Departments\EditDepartment;
 use App\Livewire\Departments\ViewDepartments;
 use App\Livewire\Events\AddEvent;
@@ -57,5 +60,10 @@ Route::middleware('auth')->group(function () {
         Route::get('/view', ViewDepartments::class)->name('departments.view');
         Route::get('/add', AddDepartment::class)->name('department.add');
         Route::get('/edit/{slug}', EditDepartment::class)->name('department.edit');
+        Route::prefix('directory')->group(function () {
+            Route::get('/view/{slug}', ShowDirectorates::class)->name('directory.view');
+            Route::get('/add/{slug}', AddDirectorates::class)->name('directory.add');
+            Route::get('/edit/{slug}', EditDirectorates::class)->name('directory.edit');
+        });
     });
 });
