@@ -90,6 +90,6 @@ class AddDirectorates extends Component
     }
     public function render()
     {
-        return view('livewire.departments.directorates.add-directorates');
+        return view('livewire.departments.directorates.add-directorates')->layout('layouts.app');
     }
 }
