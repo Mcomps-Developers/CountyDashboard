@@ -219,30 +219,30 @@
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
-                                                @if ($chief_office_photo)
+                                                @if ($chief_officer_photo)
                                                 <p>Change profile (optional)</p>
                                                 @else
                                                 <p>Upload profile (optional)</p>
                                                 @endif
-                                                @error('chief_office_photo')
+                                                @error('chief_officer_photo')
                                                 <p class="text text-danger"></p>
                                                 <small>{{ $message }}</small>
                                                 @enderror
 
-                                                <p wire:loading wire:target='chief_office_photo'>Uploading...</p>
+                                                <p wire:loading wire:target='chief_officer_photo'>Uploading...</p>
                                             </div>
-                                            <input type="file" class="upload" wire:model.live='chief_office_photo'>
+                                            <input type="file" class="upload" wire:model.live='chief_officer_photo'>
                                         </div>
 
                                     </div>
                                 </div>
-                                @if ($chief_office_photo)
+                                @if ($chief_officer_photo)
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
-                                                @if ($chief_office_photo)
-                                                <img src="{{ $chief_office_photo->temporaryUrl() }}" width="200"
+                                                @if ($chief_officer_photo)
+                                                <img src="{{ $chief_officer_photo->temporaryUrl() }}" width="200"
                                                     height="150" alt="">
                                                 @else
                                                 <p>No Image has been uploaded</p>
