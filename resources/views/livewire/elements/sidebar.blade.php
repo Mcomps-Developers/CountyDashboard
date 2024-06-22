@@ -11,7 +11,8 @@
                     <ul>
                         <li><a href="{{route('departments.view')}}">All Department</a></li>
                         @foreach ($departments as $item)
-                        <li><a href="{{route('directory.view',['slug'=>$item->slug])}}">{{$item->title}}</a></li>
+                        <li><a href="{{route('directory.view',['slug'=>$item->slug])}}"><i
+                                    class="fa fa-arrow->right"></i> {{$item->title}}</a></li>
                         @endforeach
                     </ul>
                 </li>
