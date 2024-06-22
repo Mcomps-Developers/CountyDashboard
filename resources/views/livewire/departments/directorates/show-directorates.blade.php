@@ -55,7 +55,7 @@
                                     <td>{{ date('d M Y h:iA', strtotime($item->updated_at)) }}</td>
                                     <td>
 
-                                        <a href="{{route('department.edit',['slug'=>$item->slug])}}"
+                                        <a href="{{route('department.edit',['id'=>$item->id])}}"
                                             style="padding-left: 6px;"><i class="fa fa-edit text-success"></i></a>
                                         <a href="javascript:void(0);" wire:target='deleteDirectorate({{ $item->id }})'
                                             wire:click.prevent='deleteDirectorate({{ $item->id }})'
