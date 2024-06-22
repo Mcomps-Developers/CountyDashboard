@@ -25,8 +25,8 @@ class EditDirectorates extends Component
         $this->id = $id;
         $directorate = Directorate::findOrFail($this->id);
         $this->title = $directorate->title;
-        $this->director_name = $directorate->director_name;
-        $this->director_date_of_birth = $directorate->director_date_of_birth;
+        $this->director_name = $directorate->leader_name;
+        $this->director_date_of_birth = $directorate->leader_date_of_birth;
         $this->office_phone = $directorate->office_phone;
         $this->office_email = $directorate->office_email;
         $this->about = $directorate->about;
