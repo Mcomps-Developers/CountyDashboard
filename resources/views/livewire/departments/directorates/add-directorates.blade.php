@@ -31,31 +31,31 @@
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
-                                                @if ($leader_photo)
+                                                @if ($director_photo)
                                                 <p>Director photo</p>
                                                 @else
                                                 <p>Upload Director photo</p>
                                                 @endif
-                                                @error('leader_photo')
+                                                @error('director_photo')
                                                 <p class="text text-danger"></p>
                                                 <small>{{ $message }}</small>
                                                 @enderror
 
-                                                <p wire:loading wire:target='leader_photo'>Uploading...</p>
+                                                <p wire:loading wire:target='director_photo'>Uploading...</p>
                                             </div>
-                                            <input type="file" class="upload" wire:model.live='leader_photo'>
+                                            <input type="file" class="upload" wire:model.live='director_photo'>
                                         </div>
 
                                     </div>
                                 </div>
-                                @if ($leader_photo)
+                                @if ($director_photo)
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
-                                                @if ($leader_photo)
-                                                <img src="{{ $leader_photo->temporaryUrl() }}" width="200" height="150"
-                                                    alt="">
+                                                @if ($director_photo)
+                                                <img src="{{ $director_photo->temporaryUrl() }}" width="200"
+                                                    height="150" alt="">
                                                 @else
                                                 <p>No Image has been uploaded</p>
                                                 @endif
@@ -67,8 +67,8 @@
                                 <div class="col-lg-12 col-md-3">
                                     <div class="form-group">
                                         <label>Director Name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" wire:model.live='leader_name'>
-                                        @error('leader_name')
+                                        <input type="text" class="form-control" wire:model.live='director_name'>
+                                        @error('director_name')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
@@ -76,8 +76,9 @@
                                 <div class="col-lg-12 col-md-3">
                                     <div class="form-group">
                                         <label>Director Date of Birth<span class="text-danger">*</span></label>
-                                        <input type="date" class="form-control" wire:model.live='leader_date_of_birth'>
-                                        @error('leader_date_of_birth')
+                                        <input type="date" class="form-control"
+                                            wire:model.live='director_date_of_birth'>
+                                        @error('director_date_of_birth')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
