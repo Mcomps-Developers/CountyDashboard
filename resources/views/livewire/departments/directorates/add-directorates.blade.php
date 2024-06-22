@@ -66,7 +66,7 @@
                                 @endif
                             </div>
                             <div class="row">
-                                <div class="col-lg-12 col-md-12">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Director Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='director_name'>
