@@ -79,6 +79,192 @@
 
                         </div>
                     </div>
+                    <hr>
+                    <h2>CECM Profile</h2>
+                    <div class="card-body">
+                        <div class="bank-inner-details">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Full Name<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" wire:model.live='cecm_name'>
+                                        @error('cecm_name')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Date of Birth<span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control" wire:model.live='cecm_date_of_birth'>
+                                        @error('cecm_date_of_birth')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Office Phone Number<span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control" wire:model.live='cecm_department_phone'>
+                                        @error('cecm_department_phone')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Office Email<span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control"
+                                            wire:model.live='cecm_department_email'>
+                                        @error('cecm_department_email')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-photo-btn">
+                                            <div>
+                                                @if ($cecm_photo)
+                                                <p>Change profile (optional)</p>
+                                                @else
+                                                <p>Upload profile (optional)</p>
+                                                @endif
+                                                @error('cecm_photo')
+                                                <p class="text text-danger"></p>
+                                                <small>{{ $message }}</small>
+                                                @enderror
+
+                                                <p wire:loading wire:target='cecm_photo'>Uploading...</p>
+                                            </div>
+                                            <input type="file" class="upload" wire:model.live='cecm_photo'>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @if ($cecm_photo)
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-photo-btn">
+                                            <div>
+                                                @if ($cecm_photo)
+                                                <img src="{{ $cecm_photo->temporaryUrl() }}" width="200" height="150"
+                                                    alt="">
+                                                @else
+                                                <p>No Image has been uploaded</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label>CECM Biography</label>
+                                        <textarea id="about_cecm" class="form-control" wire:model.live='about_cecm'
+                                            columns="2" rows="4"></textarea>
+                                    </div>
+                                    @error('about_cecm')
+                                    <p class="text text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <h2>Chief Office Profile</h2>
+                    <div class="card-body">
+                        <div class="bank-inner-details">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Full Name<span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" wire:model.live='chief_office_name'>
+                                        @error('chief_office_name')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Date of Birth<span class="text-danger">*</span></label>
+                                        <input type="date" class="form-control"
+                                            wire:model.live='chief_office_date_of_birth'>
+                                        @error('chief_office_date_of_birth')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Office Phone Number<span class="text-danger">*</span></label>
+                                        <input type="tel" class="form-control"
+                                            wire:model.live='chief_office_department_phone'>
+                                        @error('chief_office_department_phone')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-3">
+                                    <div class="form-group">
+                                        <label>Office Email<span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control"
+                                            wire:model.live='chief_office_department_email'>
+                                        @error('chief_office_department_email')
+                                        <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-photo-btn">
+                                            <div>
+                                                @if ($chief_office_photo)
+                                                <p>Change profile (optional)</p>
+                                                @else
+                                                <p>Upload profile (optional)</p>
+                                                @endif
+                                                @error('chief_office_photo')
+                                                <p class="text text-danger"></p>
+                                                <small>{{ $message }}</small>
+                                                @enderror
+
+                                                <p wire:loading wire:target='chief_office_photo'>Uploading...</p>
+                                            </div>
+                                            <input type="file" class="upload" wire:model.live='chief_office_photo'>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @if ($chief_office_photo)
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="form-group">
+                                        <div class="change-photo-btn">
+                                            <div>
+                                                @if ($chief_office_photo)
+                                                <img src="{{ $chief_office_photo->temporaryUrl() }}" width="200"
+                                                    height="150" alt="">
+                                                @else
+                                                <p>No Image has been uploaded</p>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group" wire:ignore>
+                                        <label>Chief Officer Biography</label>
+                                        <textarea id="about_chief_office" class="form-control"
+                                            wire:model.live='about_chief_office' columns="2" rows="4"></textarea>
+                                    </div>
+                                    @error('about_chief_office')
+                                    <p class="text text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="pt-0 blog-categories-btn">
                         <div class="bank-details-btn ">
                             <button type="submit" class="btn bank-cancel-btn me-2">Save Changes</button>
@@ -101,6 +287,30 @@
                         tinymce.triggerSave();
                         var sd_data = $('#description').val();
                         @this.set('description', sd_data);
+                    });
+                }
+            });
+            tinymce.init({
+                selector: '#about_chief_office',
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                setup: function(editor) {
+                    editor.on('Change', function(e) {
+                        tinymce.triggerSave();
+                        var sd_data = $('#about_chief_office').val();
+                        @this.set('about_chief_office', sd_data);
+                    });
+                }
+            });
+            tinymce.init({
+                selector: '#about_cecm',
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                setup: function(editor) {
+                    editor.on('Change', function(e) {
+                        tinymce.triggerSave();
+                        var sd_data = $('#about_cecm').val();
+                        @this.set('about_cecm', sd_data);
                     });
                 }
             });
