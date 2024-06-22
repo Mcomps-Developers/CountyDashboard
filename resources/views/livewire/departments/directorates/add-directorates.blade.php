@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                                 @endif
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-3">
                                     <div class="form-group">
                                         <label>Director Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='director_name'>
@@ -73,7 +73,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-3">
                                     <div class="form-group">
                                         <label>Director Date of Birth<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control"
@@ -83,7 +83,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-3">
                                     <div class="form-group">
                                         <label>Office Name<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" wire:model.live='office_phone'>
@@ -92,7 +92,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-3">
                                     <div class="form-group">
                                         <label>Office Email<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" wire:model.live='office_email'>
