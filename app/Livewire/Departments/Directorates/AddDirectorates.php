@@ -7,9 +7,11 @@ use App\Models\Directorate;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class AddDirectorates extends Component
 {
+    use WithFileUploads;
     public $slug;
     public $title;
     public $director_name;
