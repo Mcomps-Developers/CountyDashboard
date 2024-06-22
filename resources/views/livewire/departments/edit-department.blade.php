@@ -255,10 +255,10 @@
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group" wire:ignore>
                                         <label>Chief Officer Biography</label>
-                                        <textarea id="about_chief_office" class="form-control"
-                                            wire:model.live='about_chief_office' columns="2" rows="4"></textarea>
+                                        <textarea id="about_chief_officer" class="form-control"
+                                            wire:model.live='about_chief_officer' columns="2" rows="4"></textarea>
                                     </div>
-                                    @error('about_chief_office')
+                                    @error('about_chief_officer')
                                     <p class="text text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
