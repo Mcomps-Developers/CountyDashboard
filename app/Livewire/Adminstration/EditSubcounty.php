@@ -18,7 +18,7 @@ class EditSubcounty extends Component
         $subCounty = Subcounty::findOrFail($this->subCounty_id);
         $this->name = $subCounty->name;
         $this->short_description = $subCounty->short_description;
-        $this->MPName = $subCounty->MPName;
+        $this->MPName = $subCounty->mp_name;
         $this->website_url = $subCounty->website_url;
     }
 
