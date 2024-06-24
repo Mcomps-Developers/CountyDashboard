@@ -9,6 +9,7 @@ use Livewire\Component;
 
 class AddShowWard extends Component
 {
+    public $subCounty_id;
     public $name;
     public $short_description;
     public $MCAName;
