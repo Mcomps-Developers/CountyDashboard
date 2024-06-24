@@ -43,7 +43,7 @@ class AddShowWard extends Component
             $ward->name = $this->name;
             $ward->mca_name = $this->mca_name;
             $ward->short_description = $this->short_description;
-            $ward->website_url = $this->website_url;
+            $ward->website = $this->website_url;
             $ward->save();
             notyf()
                 ->position('x', 'right')
