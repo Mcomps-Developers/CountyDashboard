@@ -1,6 +1,6 @@
 <div class="content container-fluid">
     @section('title')
-    New Constituency
+    Edit Constituency
     @endsection
     <div class="row">
         <div class="col-xl-12">
@@ -8,7 +8,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">New Constituency</h3>
+                        <h3 class="page-title">Edit Constituency</h3>
                     </div>
                 </div>
             </div>
