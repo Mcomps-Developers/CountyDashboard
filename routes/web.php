@@ -25,6 +25,7 @@ use App\Livewire\Pages\DeputyGovernor;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
+use App\Livewire\Pages\PublicService;
 use App\Livewire\Pages\TheGovernor;
 use App\Livewire\Wards\AddShowWard;
 use App\Livewire\Wards\EditShowWard;
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
+        Route::get('/public-service-board',PublicService::class)->name('public.service');
     });
     // Sliders
     Route::prefix('sliders')->group(function () {

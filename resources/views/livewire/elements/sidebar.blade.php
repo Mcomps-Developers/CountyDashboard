@@ -16,7 +16,7 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fas fa-book-reader"></i> <span> Constituencies</span> <span
+                    <a href="#"><i class="fas fa-holly-berry"></i> <span> Constituencies</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{route('subCounties.show')}}">All</a></li>
@@ -27,13 +27,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="holiday.html"><i class="fas fa-holly-berry"></i> <span>Holiday</span></a>
+                    <a href="{{route('public.service')}}"><i class="fas fa-holly-berry"></i> <span>County Public Service
+                            Board</span></a>
                 </li>
                 <li>
-                    <a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
-                </li>
-                <li>
-                    <a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+                    <a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>County Revenue Board</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-calendar-day"></i> <span> Events</span>
