@@ -24,7 +24,7 @@ class EditSubcounty extends Component
 
     public $rules = [
         'name' => 'required',
-        'short_description' => 'nullable|string',
+        'short_description' => 'required|string',
         'MPName' => 'required',
         'website_url' => 'nullable|url',
     ];

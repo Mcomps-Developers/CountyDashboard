@@ -14,7 +14,7 @@ class AddSubcounty extends Component
     public $website_url;
     public $rules = [
         'name' => 'required|unique:subcounties,name',
-        'short_description' => 'nullable|string',
+        'short_description' => 'required|string',
         'MPName' => 'required',
         'website_url' => 'nullable|url',
     ];
