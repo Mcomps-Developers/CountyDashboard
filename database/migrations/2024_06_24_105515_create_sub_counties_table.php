@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sub_counties', function (Blueprint $table) {
+        Schema::create('subcounties', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('mp_name')->nullable();
             $table->longText('short_description')->nullable();
             $table->string('website_url')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
         });
     }
 

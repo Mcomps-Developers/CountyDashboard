@@ -13,14 +13,9 @@ return new class extends Migration
     {
         Schema::create('wards', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('subCounty_id');
-            $table->string('name');
             $table->longText('short_description');
             $table->string('mca_name')->nullable();
             $table->string('website')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
-            $table->foreign('subCounty_id')->references('id')->on('sub_counties')->onDelete('cascade');
         });
     }
 

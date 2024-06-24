@@ -13,6 +13,6 @@ class Ward extends Model
 
     public function subCounty()
     {
-        return $this->belongsTo(SubCounty::class, 'subCounty_id');
+        return $this->belongsTo(Subcounty::class, 'subcounty_id');
     }
 }
