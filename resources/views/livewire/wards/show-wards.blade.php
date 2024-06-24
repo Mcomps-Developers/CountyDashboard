@@ -46,7 +46,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($subcounties as $item)
+                                @foreach ($wards as $item)
                                 <tr>
                                     <td>
                                         <h2>
