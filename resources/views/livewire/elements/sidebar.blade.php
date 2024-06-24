@@ -27,7 +27,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{route('public.service')}}"><i class="fas fa-holly-berry"></i> <span>County Public Service
+                    <a href="{{route('public.service')}}"><i class="fas fa-holly-berry"></i> <span>Public Service
                             Board</span></a>
                 </li>
                 <li>
