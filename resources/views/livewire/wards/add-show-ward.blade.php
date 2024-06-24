@@ -8,7 +8,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">New Ward</h3>
+                        <h3 class="page-title">New Ward in {{$subCountyName}}</h3>
                     </div>
                 </div>
             </div>
