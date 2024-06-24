@@ -55,28 +55,7 @@
                                     <p class="text text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Tags</span></label>
-                                        <input type="text" class="form-control"
-                                            placeholder="Seperated by comma eg. speech, news, publication"
-                                            wire:model.live='tags'>
-                                        @error('tags')
-                                        <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <label>Scheduled on</span></label>
-                                        <input type="date" class="form-control" wire:model.live='publishing_date'>
-                                        @error('publishing_date')
-                                        <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="pt-0 blog-categories-btn">
