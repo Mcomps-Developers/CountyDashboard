@@ -33,11 +33,11 @@ class AddSubcounty extends Component
             $subcounty->short_description = $this->short_description;
             $subcounty->website_url = $this->website_url;
             $subcounty->save();
-            $this->reset();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->success('Constituency Created');
+            return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
