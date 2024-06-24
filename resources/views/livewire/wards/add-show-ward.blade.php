@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <label>Name<span class="text-danger">*</span></label>
+                                        <label>Ward Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='name'>
                                         @error('name')
                                         <p class="text text-danger">{{ $message }}</p>
@@ -29,16 +29,16 @@
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <label>MP Name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" wire:model.live='MCAName'>
-                                        @error('MCAName')
+                                        <label>MCA Name</label>
+                                        <input type="text" class="form-control" wire:model.live='mca_name'>
+                                        @error('mca_name')
                                         <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
-                                        <label>Website<span class="text-danger">*</span></label>
+                                        <label>Website</label>
                                         <input type="url" class="form-control" wire:model.live='website_url'>
                                         @error('website_url')
                                         <p class="text text-danger">{{ $message }}</p>

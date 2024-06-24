@@ -12,7 +12,7 @@ class AddShowWard extends Component
     public $subCounty_id;
     public $name;
     public $short_description;
-    public $MCAName;
+    public $mca_name;
     public $website_url;
     public $subCountyName;
 
@@ -25,7 +25,7 @@ class AddShowWard extends Component
     public $rules = [
         'name' => 'required|unique:wards,name',
         'short_description' => 'nullable|string',
-        'MCAName' => 'required',
+        'mca_name' => 'nullable|string|max:60',
         'website_url' => 'nullable|url',
     ];
     public function updated($fields)
@@ -41,7 +41,7 @@ class AddShowWard extends Component
             $ward = new Ward();
             $ward->subcounty_id = $subCounty->id;
             $ward->name = $this->name;
-            $ward->mca_name = $this->MCAName;
+            $ward->mca_name = $this->mca_name;
             $ward->short_description = $this->short_description;
             $ward->website_url = $this->website_url;
             $ward->save();
