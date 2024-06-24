@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('subcounties', function (Blueprint $table) {
-            $table->id();
             $table->string('mp_name')->nullable();
             $table->longText('short_description')->nullable();
             $table->string('website_url')->nullable();
