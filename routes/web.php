@@ -1,5 +1,8 @@
 <?php
 
+use App\Livewire\Adminstration\AddSubcounty;
+use App\Livewire\Adminstration\EditSubcounty;
+use App\Livewire\Adminstration\ShowSubcounty;
 use App\Livewire\Blog\AddBlog;
 use App\Livewire\Blog\AddBlogCategory;
 use App\Livewire\Blog\BlogCategories;
@@ -23,6 +26,9 @@ use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
 use App\Livewire\Pages\TheGovernor;
+use App\Livewire\Wards\AddShowWard;
+use App\Livewire\Wards\EditShowWard;
+use App\Livewire\Wards\ShowWards;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
@@ -49,13 +55,28 @@ Route::middleware('auth')->group(function () {
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
     });
-
+    // Sliders
     Route::prefix('sliders')->group(function () {
         Route::get('/view', HomeSliders::class)->name('home.sliders');
         Route::get('/add', AddSlider::class)->name('slider.add');
         Route::get('/edit/{reference}', AddSlider::class)->name('slider.edit');
     });
 
+    // Subcounties
+
+    Route::prefix('constituencies')->group(function () {
+        Route::get('/view', ShowSubcounty::class)->name('subCounties.show');
+        Route::get('/add', AddSubcounty::class)->name('subCounty.add');
+        Route::get('/edit/{subCounty_id}', EditSubcounty::class)->name('subCounty.edit');
+    });
+
+    Route::prefix('wards')->group(function () {
+        Route::get('/view/{subCounty_id}', ShowWards::class)->name('wards.show');
+        Route::get('/add/{subCounty_id}', AddShowWard::class)->name('ward.add');
+        Route::get('/edit/{ward_id}', EditShowWard::class)->name('ward.edit');
+    });
+
+    // Departments
     Route::prefix('departments')->group(function () {
         Route::get('/view', ViewDepartments::class)->name('departments.view');
         Route::get('/add', AddDepartment::class)->name('department.add');

@@ -16,24 +16,14 @@
                     </ul>
                 </li>
                 <li class="submenu">
-                    <a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span
+                    <a href="#"><i class="fas fa-book-reader"></i> <span> Constituencies</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="subjects.html">Subject List</a></li>
-                        <li><a href="add-subject.html">Subject Add</a></li>
-                        <li><a href="edit-subject.html">Subject Edit</a></li>
-                    </ul>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="fas fa-clipboard"></i> <span> Invoices</span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="invoices.html">Invoices List</a></li>
-                        <li><a href="invoice-grid.html">Invoices Grid</a></li>
-                        <li><a href="add-invoice.html">Add Invoices</a></li>
-                        <li><a href="edit-invoice.html">Edit Invoices</a></li>
-                        <li><a href="view-invoice.html">Invoices Details</a></li>
-                        <li><a href="invoices-settings.html">Invoices Settings</a></li>
+                        <li><a href="{{route('subCounties.show')}}">All</a></li>
+                        @foreach ($subCounties as $item)
+                        <li><a href="{{route('wards.show',['subCounty_id'=>$item->id])}}">{{ $item->name}}</a></li>
+                        @endforeach
+
                     </ul>
                 </li>
                 <li>

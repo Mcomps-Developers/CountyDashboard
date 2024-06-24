@@ -10,4 +10,9 @@ class Subcounty extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function wards()
+    {
+        return $this->hasMany(Ward::class, 'subcounty_id');
+    }
 }
