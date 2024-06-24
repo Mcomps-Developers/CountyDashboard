@@ -9,7 +9,7 @@ use Livewire\Component;
 class AddSubcounty extends Component
 {
     public $name;
-    public $description;
+    public $short_description;
     public $MPName;
     public $website_url;
     public $rules = [
