@@ -25,7 +25,7 @@ class AddShowWard extends Component
     public $rules = [
         'name' => 'required|unique:wards,name',
         'short_description' => 'nullable|string',
-        'MPName' => 'required',
+        'MCAName' => 'required',
         'website_url' => 'nullable|url',
     ];
     public function updated($fields)
