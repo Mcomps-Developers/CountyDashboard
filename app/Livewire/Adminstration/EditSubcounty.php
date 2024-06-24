@@ -23,7 +23,7 @@ class EditSubcounty extends Component
     }
 
     public $rules = [
-        'name' => 'required|unique:subcounties,name',
+        'name' => 'required',
         'short_description' => 'nullable|string',
         'MPName' => 'required',
         'website_url' => 'nullable|url',
