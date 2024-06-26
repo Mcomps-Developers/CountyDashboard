@@ -21,6 +21,7 @@ use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
 use App\Livewire\Pages\AddSlider;
+use App\Livewire\Pages\CountyRevenueBoard;
 use App\Livewire\Pages\DeputyGovernor;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
@@ -55,7 +56,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
-        Route::get('/public-service-board',PublicService::class)->name('public.service');
+        Route::get('/cpsb',PublicService::class)->name('public.service');
+        Route::get('/crb',CountyRevenueBoard::class)->name('crb');
     });
     // Sliders
     Route::prefix('sliders')->group(function () {

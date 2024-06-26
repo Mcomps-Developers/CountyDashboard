@@ -9,9 +9,10 @@
                     <a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li class="text-primary"><a href="{{route('departments.view')}}">All Department</a></li>
+                        <li class="text-primary"><a href="{{ route('departments.view') }}">All Department</a></li>
                         @foreach ($departments as $item)
-                        <li><a href="{{route('directory.view',['slug'=>$item->slug])}}">{{$item->title}}</a></li>
+                            <li><a href="{{ route('directory.view', ['slug' => $item->slug]) }}">{{ $item->title }}</a>
+                            </li>
                         @endforeach
                     </ul>
                 </li>
@@ -19,19 +20,21 @@
                     <a href="#"><i class="fas fa-holly-berry"></i> <span> Constituencies</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
-                        <li><a href="{{route('subCounties.show')}}">All</a></li>
+                        <li><a href="{{ route('subCounties.show') }}">All</a></li>
                         @foreach ($subCounties as $item)
-                        <li><a href="{{route('wards.show',['subCounty_id'=>$item->id])}}">{{ $item->name}}</a></li>
+                            <li><a href="{{ route('wards.show', ['subCounty_id' => $item->id]) }}">{{ $item->name }}</a>
+                            </li>
                         @endforeach
 
                     </ul>
                 </li>
                 <li>
-                    <a href="{{route('public.service')}}"><i class="fas fa-holly-berry"></i> <span>Public Service
+                    <a href="{{ route('public.service') }}"><i class="fas fa-holly-berry"></i> <span>Public Service
                             Board</span></a>
                 </li>
                 <li>
-                    <a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>County Revenue Board</span></a>
+                    <a href="{{ route('crb') }}"><i class="fas fa-comment-dollar"></i> <span>County Revenue
+                            Board</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-calendar-day"></i> <span> Events</span>
@@ -39,8 +42,9 @@
                     </a>
                     <ul>
                         @foreach ($eventCategories as $item)
-                        <li><a href="{{ route('events.category', ['slug' => $item->slug]) }}"
-                                style="text-transform: capitalize" title="{{ $item->name }}">{{ $item->name }}</a></li>
+                            <li><a href="{{ route('events.category', ['slug' => $item->slug]) }}"
+                                    style="text-transform: capitalize"
+                                    title="{{ $item->name }}">{{ $item->name }}</a></li>
                         @endforeach
                         <li><a href="{{ route('events.categories') }}">Categories</a></li>
                     </ul>
@@ -51,9 +55,9 @@
                     </a>
                     <ul>
                         @foreach ($categories as $item)
-                        <li><a href="{{ route('blog.category', ['slug' => $item->slug]) }}"
-                                style="text-transform: capitalize" title="{{ $item->description }}">{{ $item->name
-                                }}</a></li>
+                            <li><a href="{{ route('blog.category', ['slug' => $item->slug]) }}"
+                                    style="text-transform: capitalize"
+                                    title="{{ $item->description }}">{{ $item->name }}</a></li>
                         @endforeach
                         <li><a href="{{ route('blog.categories') }}">Categories</a></li>
                     </ul>
