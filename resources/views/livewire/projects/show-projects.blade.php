@@ -27,7 +27,7 @@
                                 <a href="javascript:void(0);" class="btn btn-outline-primary me-2"><i
                                         class="fas fa-download"></i>
                                     Download</a>
-                                <a href="{{ route('projects.show') }}" class="btn btn-primary"><i
+                                <a href="{{ route('project.add') }}" class="btn btn-primary"><i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
