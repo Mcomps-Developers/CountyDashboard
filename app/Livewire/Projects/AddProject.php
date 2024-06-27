@@ -99,7 +99,7 @@ class AddProject extends Component
     }
     public function render()
     {
-        $departments = Department::orderBy('name')->get();
+        $departments = Department::orderBy('title')->get();
         return view('livewire.projects.add-project', ['departments' => $departments])->layout('layouts.app');
     }
 }
