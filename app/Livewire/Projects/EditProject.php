@@ -69,7 +69,7 @@ class EditProject extends Component
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Created successfully.');
+                ->success('Changes saved successfully.');
             return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
