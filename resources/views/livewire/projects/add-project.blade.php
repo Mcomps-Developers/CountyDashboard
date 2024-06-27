@@ -28,30 +28,35 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="form-group">
-                                        <label>Department <span class="text-danger">Optional</span></label>
-                                        <select name="" id="" class="form-control"
-                                            wire:model='department'>
-                                            <option>--</option>
-                                            @foreach ($departments as $item)
-                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('department')
-                                            <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
+                                @if (empty($category_name))
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>Project Department <span class="text-danger">Optional</span></label>
+                                            <select name="" id="" class="form-control"
+                                                wire:model='department'>
+                                                <option>--</option>
+                                                @foreach ($departments as $item)
+                                                    <option value="{{ $item->id }}">{{ $item->title }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('department')
+                                                <p class="text text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="form-group">
-                                        <label>Category <span class="text-danger">Optional</span></label>
-                                        <input type="text" class="form-control" wire:model.live='category_name'>
-                                        @error('category_name')
-                                            <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
+                                @endif
+                                @if (empty($department))
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="form-group">
+                                            <label>Project Category, where not for department <span
+                                                    class="text-danger">Optional</span></label>
+                                            <input type="text" class="form-control" wire:model.live='category_name'>
+                                            @error('category_name')
+                                                <p class="text text-danger">{{ $message }}</p>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                                 <div class="col-lg-6 col-md-12">
                                     <div class="form-group">
                                         <div class="change-photo-btn">
