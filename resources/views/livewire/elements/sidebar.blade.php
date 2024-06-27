@@ -22,11 +22,15 @@
                     <ul>
                         <li><a href="{{ route('subCounties.show') }}">All</a></li>
                         @foreach ($subCounties as $item)
-                            <li><a href="{{ route('wards.show', ['subCounty_id' => $item->id]) }}">{{ $item->name }}</a>
+                            <li><a
+                                    href="{{ route('wards.show', ['subCounty_id' => $item->id]) }}">{{ $item->name }}</a>
                             </li>
                         @endforeach
 
                     </ul>
+                </li>
+                <li>
+                    <a href="{{ route('projects.show') }}"><i class="fas fa-holly-berry"></i> <span>Projects</span></a>
                 </li>
                 <li>
                     <a href="{{ route('public.service') }}"><i class="fas fa-holly-berry"></i> <span>Public Service
