@@ -33,7 +33,7 @@ class EditProject extends Component
         $this->project_date = $project->project_date;
         $this->category_name = $project->category_name;
         $this->location = $project->location;
-        $this->department = $project->department;
+        $this->department = $project->department_id;
     }
     protected $rules = [
         'description' => 'required|string',
