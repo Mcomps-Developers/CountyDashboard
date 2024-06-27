@@ -18,7 +18,7 @@ class EditProject extends Component
     private $slug;
     public $description;
     public $title;
-    public $cover_image;
+    public $new_cover_image;
     public $project_date;
     public $category_name;
     public $location;
@@ -38,7 +38,7 @@ class EditProject extends Component
     protected $rules = [
         'description' => 'required|string',
         'title' => 'required',
-        'cover_image' => 'nullable|mimes:png,jpg,jpeg|max:5120',
+        'new_cover_image' => 'nullable|mimes:png,jpg,jpeg|max:5120',
         'project_date' => 'nullable|date',
         'category_name' => 'nullable',
         'department' => 'nullable',
@@ -60,9 +60,9 @@ class EditProject extends Component
             $project->department_id = $this->department;
             $project->slug = Str::slug($this->title, '-');
             $project->created_at = empty($this->project_date) ? Carbon::now() : $this->project_date;
-            if ($this->cover_image) {
-                $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->cover_image->extension();
-                $this->cover_image->storeAs('assets/img/projects/covers', $photoName);
+            if ($this->new_cover_image) {
+                $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->new_cover_image->extension();
+                $this->new_cover_image->storeAs('assets/img/projects/covers', $photoName);
                 $project->cover_image = $photoName;
             }
             $project->save();
