@@ -56,7 +56,7 @@
                                         <td>
                                             <h2 style="text-transform: capitalize">
                                                 @if ($item->department_id)
-                                                    <a>{{ $item->department->name }}</a>
+                                                    <a>{{ $item->department->title }}</a>
                                                 @else
                                                     <a>{{ $item->category_name }}</a>
                                                 @endif
