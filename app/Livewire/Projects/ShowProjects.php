@@ -1,22 +1,24 @@
 <?php
 
-namespace App\Livewire\Departments;
+namespace App\Livewire\Projects;
 
-use App\Models\Department;
+use App\Models\Project;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Livewire\WithPagination;
 
-class ViewDepartments extends Component
+class ShowProjects extends Component
 {
-    public function deleteDepartment($rowID) 
+    use WithPagination;
+    public function deleteProject($rowID)
     {
         try {
-            $department = Department::findOrFail($rowID);
+            $department = Project::findOrFail($rowID);
             $department->delete();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Department Deleted');
+                ->success('Project Deleted');
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
@@ -43,7 +45,7 @@ class ViewDepartments extends Component
     }
     public function render()
     {
-        $departments = Department::orderby('title')->get();
-        return view('livewire.departments.view-departments', ['departments' => $departments])->layout('layouts.app');
+        $projects = Project::orderBy('created_at')->paginate(12);
+        return view('livewire.projects.show-projects', ['projects' => $projects])->layout('layouts.app');
     }
 }

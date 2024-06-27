@@ -28,6 +28,9 @@ use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
 use App\Livewire\Pages\PublicService;
 use App\Livewire\Pages\TheGovernor;
+use App\Livewire\Projects\AddProject;
+use App\Livewire\Projects\EditProject;
+use App\Livewire\Projects\ShowProjects;
 use App\Livewire\Wards\AddShowWard;
 use App\Livewire\Wards\EditShowWard;
 use App\Livewire\Wards\ShowWards;
@@ -51,13 +54,21 @@ Route::middleware('auth')->group(function () {
         Route::get('/category/{slug}/add', AddEvent::class)->name('event.add');
         Route::get('/edit/{reference}', EditEvent::class)->name('event.edit');
     });
+    // Pages
     Route::prefix('pages')->group(function () {
         Route::get('/stats', HomeStats::class)->name('stats');
         Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
-        Route::get('/cpsb',PublicService::class)->name('public.service');
-        Route::get('/crb',CountyRevenueBoard::class)->name('crb');
+        Route::get('/cpsb', PublicService::class)->name('public.service');
+        Route::get('/crb', CountyRevenueBoard::class)->name('crb');
+    });
+
+    // Projects
+    Route::prefix('projects')->group(function () {
+        Route::get('/show', ShowProjects::class)->name('projects.show');
+        Route::get('/add', AddProject::class)->name('project.add');
+        Route::get('/edit/{project_id}', EditProject::class)->name('project.edit');
     });
     // Sliders
     Route::prefix('sliders')->group(function () {
