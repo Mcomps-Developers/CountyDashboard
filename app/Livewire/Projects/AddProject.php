@@ -49,11 +49,6 @@ class AddProject extends Component
     public function saveChanges()
     {
         $this->validate();
-        if ($this->photo) {
-            $this->validate([
-                'photo' => 'mimes:png,jpg,jpeg|max:5120',
-            ]);
-        }
         try {
             $project = new Project();
             $project->title = $this->title;
