@@ -61,29 +61,29 @@
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
-                                                @if ($cover_image)
+                                                @if ($new_cover_image)
                                                     <p>Change Cover photo</p>
                                                 @else
                                                     <p>Upload Cover photo</p>
                                                 @endif
                                                 <small></small>
-                                                <p wire:loading wire:target='cover_image'>Uploading cover project cover
+                                                <p wire:loading wire:target='new_cover_image'>Uploading cover project cover
                                                     photo...</p>
                                             </div>
-                                            <input type="file" class="upload" wire:model.live='cover_image'>
+                                            <input type="file" class="upload" wire:model.live='new_cover_image'>
                                         </div>
-                                        @error('cover_image')
+                                        @error('new_cover_image')
                                             <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>
                                 </div>
-                                @if ($cover_image)
+                                @if ($new_cover_image)
                                     <div class="col-lg-6 col-md-12">
                                         <div class="form-group">
                                             <div class="change-photo-btn">
                                                 <div>
-                                                    @if ($cover_image)
-                                                        <img src="{{ $cover_image->temporaryUrl() }}" width="200"
+                                                    @if ($new_cover_image)
+                                                        <img src="{{ $new_cover_image->temporaryUrl() }}" width="200"
                                                             height="150" alt="">
                                                     @else
                                                         <p>No Image has been uploaded</p>
