@@ -10,12 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('municipalities', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();
+        Schema::table('municipalities', function (Blueprint $table) {
             $table->string('slug')->unique();
             $table->longText('content')->default('Coming soon!');
-            $table->timestamps();
             $table->softDeletes();
         });
     }
