@@ -57,12 +57,13 @@
                                         <div class="change-photo-btn">
                                             <div>
                                                 @if ($cover_image)
-                                                    <p>Change Image</p>
+                                                    <p>Change Cover photo</p>
                                                 @else
-                                                    <p>Upload Image</p>
+                                                    <p>Upload Cover photo</p>
                                                 @endif
-                                                <small>Will automatically be resized to 1200x800 pixels.</small>
-                                                <p wire:loading wire:target='cover_image'>Uploading...</p>
+                                                <small></small>
+                                                <p wire:loading wire:target='cover_image'>Uploading cover project cover
+                                                    photo...</p>
                                             </div>
                                             <input type="file" class="upload" wire:model.live='cover_image'>
                                         </div>
@@ -95,6 +96,15 @@
                                     @error('description')
                                         <p class="text text-danger">{{ $message }}</p>
                                     @enderror
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <label>Project Location</span></label>
+                                        <input type="text" class="form-control" wire:model.live='location'>
+                                        @error('location')
+                                            <p class="text text-danger">{{ $message }}</p>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
