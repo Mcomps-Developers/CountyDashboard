@@ -56,6 +56,7 @@ class AddProject extends Component
             $project->slug = Str::slug($this->title, '-');
             $project->category_name = $this->category_name;
             $project->department_id = $this->department;
+            $project->images = 'null';
             $project->reference = $this->generateUniqueReference(Project::class, 'reference', 5);
             $project->created_at = empty($this->project_date) ? Carbon::now() : $this->project_date;
             if ($this->cover_image) {
