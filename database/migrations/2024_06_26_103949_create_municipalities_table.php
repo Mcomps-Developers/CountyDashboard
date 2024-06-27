@@ -13,7 +13,6 @@ return new class extends Migration {
         Schema::table('municipalities', function (Blueprint $table) {
             $table->string('slug')->unique();
             $table->longText('content')->default('Coming soon!');
-            $table->softDeletes();
         });
     }
 
