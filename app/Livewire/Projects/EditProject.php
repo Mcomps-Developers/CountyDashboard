@@ -53,7 +53,7 @@ class EditProject extends Component
     {
         $this->validate();
         try {
-            $project = new Project();
+            $project = Project::findOrFail($this->project_id);
             $project->title = $this->title;
             $project->description = $this->description;
             $project->category_name = $this->category_name;
