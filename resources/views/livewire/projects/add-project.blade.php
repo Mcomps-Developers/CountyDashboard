@@ -35,7 +35,7 @@
                                             wire:model='department'>
                                             <option>--</option>
                                             @foreach ($departments as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                <option value="{{ $item->id }}">{{ $item->title }}</option>
                                             @endforeach
                                         </select>
                                         @error('department')
