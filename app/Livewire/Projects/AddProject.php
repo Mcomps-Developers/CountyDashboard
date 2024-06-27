@@ -27,6 +27,9 @@ class AddProject extends Component
         'title' => 'required',
         'cover_image' => 'nullable|mimes:png,jpg,jpeg|max:5120',
         'project_date' => 'nullable|date',
+        'category_name' => 'nullable',
+        'department' => 'nullable',
+        'location' => 'required',
     ];
 
     public function updated($fields)
