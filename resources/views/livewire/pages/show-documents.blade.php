@@ -65,12 +65,9 @@
                                         <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
                                         <td>{{ date('d M Y h:iA', strtotime($item->updated_at)) }}</td>
                                         <td>
-
-                                            <a href="{{ route('project.edit', ['project_id' => $item->id]) }}"
-                                                style="padding-left: 6px;"><i class="fa fa-edit text-success"></i></a>
                                             <a href="javascript:void(0);"
-                                                wire:target='deleteProject({{ $item->id }})'
-                                                wire:click.prevent='deleteProject({{ $item->id }})'
+                                                wire:target='deleteDocument({{ $item->id }})'
+                                                wire:click.prevent='deleteDocument({{ $item->id }})'
                                                 wire:confirm='Are you sure you want to delete?'><i
                                                     class="fa fa-trash text-danger" style="padding-left: 6px;"></i></a>
                                         </td>

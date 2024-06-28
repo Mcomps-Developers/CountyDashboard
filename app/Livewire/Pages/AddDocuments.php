@@ -4,10 +4,10 @@ namespace App\Livewire\Pages;
 
 use App\Models\Department;
 use App\Models\Document;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Illuminate\Support\Str;
 
 class AddDocuments extends Component
 {
@@ -41,8 +41,8 @@ class AddDocuments extends Component
             $document->type = $this->type;
 
             if ($this->document) {
-                $documentName = Carbon::now() . '.' . $this->document->extension();
-                $this->document->storeAs('assets/documents/uploads', $documentName);
+                $documentName = Str::random(5) . '.' . $this->document->extension();
+                $this->document->storeAs('assets/documents/uploads', $this->title . '-' . $documentName);
                 $document->document = $this->title . '-' . $documentName;
             }
             $document->save();
