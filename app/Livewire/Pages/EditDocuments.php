@@ -13,14 +13,16 @@ class EditDocuments extends Component
 {
     use WithFileUploads;
     public $file_id;
-    public $name;
+    public $title;
     public $folder;
     public $type;
     public $newDocument;
     public function mount()
     {
         $file = Document::findOrFail($this->file_id);
-        $this->name = $file->title;
+        $this->title = $file->title;
+        $this->type = $file->type;
+        $this->folder = $file->folder_id;
     }
     protected $rules = [
         'type' => 'required',
