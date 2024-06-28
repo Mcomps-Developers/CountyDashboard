@@ -35,6 +35,7 @@
                                             <option>--</option>
                                             <option value="budget">Budget</option>
                                             <option value="tender">Tender</option>
+                                            <option value="vacancy">Vacancy</option>
                                             <option value="other">Other</option>
                                         </select>
                                         @error('type')
