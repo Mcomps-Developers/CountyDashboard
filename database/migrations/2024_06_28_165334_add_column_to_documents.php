@@ -11,7 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('documents', function (Blueprint $table) {
-            $table->unsignedBigInteger('folder_id')->default(1);
+            $table->unsignedBigInteger('folder_id')->nullable();
             $table->foreign('folder_id')->references('id')->on('folders')->onDelete('cascade');
         });
     }
