@@ -57,7 +57,7 @@
                                         <td>
                                             <a href="{{ route('folder.edit', ['folder_id' => $item->id]) }}"><i
                                                     class="fa fa-edit"></i></a>
-                                            <a href="{{ route('folder.add.file', ['folder_id' => $item->id]) }}"
+                                            <a href="{{ route('document.add', ['folder_id' => $item->id]) }}"
                                                 style="padding-left: 6px;"><i class="fa fa-list text-success"></i></a>
                                             <a href="javascript:void(0);"
                                                 wire:target='deleteFolder({{ $item->id }})'
