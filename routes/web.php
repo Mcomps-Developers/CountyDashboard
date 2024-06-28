@@ -20,13 +20,16 @@ use App\Livewire\Events\EditEvent;
 use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
+use App\Livewire\Pages\AddDocuments;
 use App\Livewire\Pages\AddSlider;
 use App\Livewire\Pages\CountyRevenueBoard;
 use App\Livewire\Pages\DeputyGovernor;
+use App\Livewire\Pages\EditDocuments;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
 use App\Livewire\Pages\PublicService;
+use App\Livewire\Pages\ShowDocuments;
 use App\Livewire\Pages\TheGovernor;
 use App\Livewire\Projects\AddProject;
 use App\Livewire\Projects\EditProject;
@@ -70,6 +73,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/add', AddProject::class)->name('project.add');
         Route::get('/edit/{project_id}', EditProject::class)->name('project.edit');
     });
+
+    // Projects
+    Route::prefix('documents')->group(function () {
+        Route::get('/show', ShowDocuments::class)->name('documents.show');
+        Route::get('/add', AddDocuments::class)->name('document.add');
+        Route::get('/edit/{project_id}', EditDocuments::class)->name('document.edit');
+    });
+
     // Sliders
     Route::prefix('sliders')->group(function () {
         Route::get('/view', HomeSliders::class)->name('home.sliders');
