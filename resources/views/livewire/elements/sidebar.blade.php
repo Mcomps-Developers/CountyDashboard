@@ -30,6 +30,17 @@
                     </ul>
                 </li>
                 <li class="submenu">
+                    <a href="#"><i class="fas fa-holly-berry"></i> <span> Municipality</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('documents') }}">Grid View</a></li>
+                        @foreach ($municipalities as $item)
+                            <li><a href="">{{ $item->name }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="submenu">
                     <a href="#"><i class="fas fa-file"></i> <span> Documents</span> <span
                             class="menu-arrow"></span></a>
                     <ul>
