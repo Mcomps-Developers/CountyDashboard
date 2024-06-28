@@ -42,14 +42,14 @@ class AddDocuments extends Component
         try {
             $document = new Document();
             $document->title = $this->title;
-            $document->category_name = $this->category_name;
+            $document->categoryy_name = $this->category_name;
             $document->department_id = $this->department;
             $document->type = $this->type;
 
             if ($this->document) {
                 $documentName = $this->generateUniqueReference(5) . '.' . $this->document->extension();
                 $this->document->storeAs('assets/documents/uploads', $documentName);
-                $document->document = $this->title . $documentName;
+                $document->document = $this->title . '-' . $documentName;
             }
             $document->save();
 
