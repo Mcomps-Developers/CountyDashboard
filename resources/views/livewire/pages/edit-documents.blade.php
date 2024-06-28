@@ -61,18 +61,18 @@
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
-                                                @if ($document)
+                                                @if ($newDocument)
                                                     <p>Change File</p>
-                                                    <p>{{ $document->getClientOriginalName() }}</p>
+                                                    <p>{{ $newDocument->getClientOriginalName() }}</p>
                                                 @else
                                                     <p>Upload File</p>
                                                 @endif
                                                 <small></small>
-                                                <p wire:loading wire:target='document'>Uploading File...</p>
+                                                <p wire:loading wire:target='newDocument'>Uploading File...</p>
                                             </div>
-                                            <input type="file" class="upload" wire:model.live='document'>
+                                            <input type="file" class="upload" wire:model.live='newDocument'>
                                         </div>
-                                        @error('document')
+                                        @error('newDocument')
                                             <p class="text text-danger">{{ $message }}</p>
                                         @enderror
                                     </div>

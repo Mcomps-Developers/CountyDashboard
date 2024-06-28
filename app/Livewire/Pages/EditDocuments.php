@@ -16,6 +16,7 @@ class EditDocuments extends Component
     public $name;
     public $folder;
     public $type;
+    public $newDocument;
     public function mount()
     {
         $file = Document::findOrFail($this->file_id);
@@ -25,7 +26,7 @@ class EditDocuments extends Component
         'type' => 'required',
         'title' => 'nullable',
         'folder' => 'nullable',
-        'document' => 'nullable|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub,zip|max:1024000',
+        'newDocument' => 'nullable|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub,zip|max:1024000',
     ];
     public function updated($fields)
     {
@@ -40,9 +41,9 @@ class EditDocuments extends Component
             $document->title = $this->title;
             $document->type = $this->type;
             $document->folder_id = $this->folder;
-            if ($this->document) {
-                $documentName = Str::random(5) . '.' . $this->document->extension();
-                $this->document->storeAs('assets/documents/uploads', $this->title . '-' . $documentName);
+            if ($this->newDocument) {
+                $documentName = Str::random(5) . '.' . $this->newDocument->extension();
+                $this->newDocument->storeAs('assets/documents/uploads', $this->title . '-' . $documentName);
                 $document->document = $this->title . '-' . $documentName;
             }
             $document->save();
