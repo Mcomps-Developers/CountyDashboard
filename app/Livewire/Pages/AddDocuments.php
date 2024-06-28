@@ -7,7 +7,6 @@ use App\Models\Document;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use Illuminate\Support\Str;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class AddDocuments extends Component
@@ -26,11 +25,6 @@ class AddDocuments extends Component
         'department' => 'nullable',
         'type' => 'required',
     ];
-    private function generateUniqueReference($length = 5)
-    {
-        $reference = Str::random($length);
-        return $reference;
-    }
     public function updated($fields)
     {
         $this->validateOnly($fields);
@@ -47,7 +41,7 @@ class AddDocuments extends Component
             $document->type = $this->type;
 
             if ($this->document) {
-                $documentName = $this->generateUniqueReference(5) . '.' . $this->document->extension();
+                $documentName = Carbon::now() . '.' . $this->document->extension();
                 $this->document->storeAs('assets/documents/uploads', $documentName);
                 $document->document = $this->title . '-' . $documentName;
             }
