@@ -31,12 +31,10 @@ class EditFolders extends Component
             $folder = Folder::findOrFail($this->folder_id);
             $folder->name = $this->name;
             $folder->save();
-            $this->reset();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->success('Folder Updated successfully');
-
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
