@@ -24,6 +24,9 @@ use App\Livewire\Events\EditEvent;
 use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
+use App\Livewire\Municipalities\AddMunicipality;
+use App\Livewire\Municipalities\EditMunicipality;
+use App\Livewire\Municipalities\ShowMunicipalities;
 use App\Livewire\Pages\AddDocuments;
 use App\Livewire\Pages\AddSlider;
 use App\Livewire\Pages\CountyRevenueBoard;
@@ -90,7 +93,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/file/edit/{file_id}', EditDocuments::class)->name('document.edit');
         Route::get('/all-documents', AllDocuments::class)->name('documents');
     });
-
+    // Municipalities
+    Route::prefix('municipality')->group(function () {
+        Route::get('/show', ShowMunicipalities::class)->name('municipalities');
+        Route::get('/add', AddMunicipality::class)->name('municipality.add');
+        Route::get('/edit/{municipality_id}', EditMunicipality::class)->name('municipality.edit');
+    });
     // Sliders
     Route::prefix('sliders')->group(function () {
         Route::get('/view', HomeSliders::class)->name('home.sliders');
