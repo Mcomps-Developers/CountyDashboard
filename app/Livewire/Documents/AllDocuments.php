@@ -1,24 +1,16 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Documents;
 
 use App\Models\Document;
-use App\Models\Folder;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ShowDocuments extends Component
+class AllDocuments extends Component
 {
     use WithPagination;
-    public $folder_id;
-    public $folder_name;
 
-    public function mount()
-    {
-        $folder = Folder::findOrFail($this->folder_id);
-        $this->folder_name = $folder->name;
-    }
     public function deleteDocument($rowID)
     {
         try {
@@ -54,7 +46,7 @@ class ShowDocuments extends Component
     }
     public function render()
     {
-        $documents = Document::orderByDesc('created_at')->where('folder_id', $this->folder_id)->paginate(12);
-        return view('livewire.pages.show-documents', ['documents' => $documents])->layout('layouts.app');
+        $files = Document::orderBy('folder_id')->paginate(12);
+        return view('livewire.documents.all-documents')->layout('layouts.app');
     }
 }

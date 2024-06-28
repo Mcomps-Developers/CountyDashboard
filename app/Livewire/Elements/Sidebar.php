@@ -5,6 +5,7 @@ namespace App\Livewire\Elements;
 use App\Models\BlogCategory;
 use App\Models\Department;
 use App\Models\EventCategory;
+use App\Models\Folder;
 use App\Models\Subcounty;
 use Livewire\Component;
 
@@ -16,6 +17,7 @@ class Sidebar extends Component
         $eventCategories = EventCategory::orderBy('name')->get();
         $departments = Department::orderBy('title')->get();
         $subCounties = Subcounty::orderBy('name')->get();
-        return view('livewire.elements.sidebar', ['categories' => $categories, 'eventCategories' => $eventCategories, 'departments' => $departments, 'subCounties' => $subCounties]);
+        $folders = Folder::orderBy('name')->get();
+        return view('livewire.elements.sidebar', ['folders' => $folders, 'categories' => $categories, 'eventCategories' => $eventCategories, 'departments' => $departments, 'subCounties' => $subCounties]);
     }
 }

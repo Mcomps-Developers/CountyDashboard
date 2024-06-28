@@ -1,31 +1,16 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Documents;
 
-use App\Models\Document;
 use App\Models\Folder;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use Illuminate\Support\Str;
-use Livewire\WithFileUploads;
 
-class EditDocuments extends Component
+class AddFolders extends Component
 {
-    use WithFileUploads;
-    public $file_id;
     public $name;
-    public $folder;
-    public $type;
-    public function mount()
-    {
-        $file = Document::findOrFail($this->file_id);
-        $this->name = $file->title;
-    }
-    protected $rules = [
-        'type' => 'required',
-        'title' => 'nullable',
-        'folder' => 'nullable',
-        'document' => 'nullable|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub,zip|max:1024000',
+    public $rules = [
+        'name' => 'required|unique:folders,name',
     ];
     public function updated($fields)
     {
@@ -36,22 +21,15 @@ class EditDocuments extends Component
     {
         $this->validate();
         try {
-            $document = Document::findOrFail($this->file_id);
-            $document->title = $this->title;
-            $document->type = $this->type;
-            $document->folder_id = $this->folder;
-            if ($this->document) {
-                $documentName = Str::random(5) . '.' . $this->document->extension();
-                $this->document->storeAs('assets/documents/uploads', $this->title . '-' . $documentName);
-                $document->document = $this->title . '-' . $documentName;
-            }
-            $document->save();
-
+            $folder = new Folder();
+            $folder->name = $this->name;
+            $folder->save();
+            $this->reset();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Uploaded successfully.');
-            return redirect(request()->header('Referer'));
+                ->success('Folder Created successfully');
+
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
@@ -77,10 +55,10 @@ class EditDocuments extends Component
                 ->error('Error occurred. Try later');
             return redirect(request()->header('Referer'));
         }
+
     }
     public function render()
     {
-        $folders = Folder::orderBy('name')->get();
-        return view('livewire.pages.edit-documents', ['folders' => $folders])->layout('layouts.app');
+        return view('livewire.documents.add-folders')->layout('layouts.app');
     }
 }

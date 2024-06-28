@@ -14,6 +14,10 @@ use App\Livewire\Departments\Directorates\EditDirectorates;
 use App\Livewire\Departments\Directorates\ShowDirectorates;
 use App\Livewire\Departments\EditDepartment;
 use App\Livewire\Departments\ViewDepartments;
+use App\Livewire\Documents\AddFolders;
+use App\Livewire\Documents\AllDocuments;
+use App\Livewire\Documents\EditFolders;
+use App\Livewire\Documents\ShowFolders;
 use App\Livewire\Events\AddEvent;
 use App\Livewire\Events\AddEventCategory;
 use App\Livewire\Events\EditEvent;
@@ -74,11 +78,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/{project_id}', EditProject::class)->name('project.edit');
     });
 
-    // Projects
-    Route::prefix('documents')->group(function () {
-        Route::get('/show', ShowDocuments::class)->name('documents.show');
-        Route::get('/add', AddDocuments::class)->name('document.add');
-        Route::get('/edit/{project_id}', EditDocuments::class)->name('document.edit');
+    // Documents
+    Route::prefix('folders')->group(function () {
+        Route::get('/show', ShowFolders::class)->name('folders.show');
+        Route::get('/add', AddFolders::class)->name('folder.add');
+        Route::get('/edit/{folder_id}', EditFolders::class)->name('folder.edit');
+
+        // Files
+        Route::get('/show/{folder_id}', ShowDocuments::class)->name('documents.show');
+        Route::get('/add/{folder_id}', AddDocuments::class)->name('document.add');
+        Route::get('/edit/{file_id}', EditDocuments::class)->name('document.edit');
+        Route::get('/all-documents', AllDocuments::class)->name('documents');
     });
 
     // Sliders

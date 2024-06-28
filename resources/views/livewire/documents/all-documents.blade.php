@@ -1,13 +1,13 @@
 <div class="content container-fluid">
     @section('title')
-        {{ $folder_name }} Files
+        All Files
     @endsection
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col">
                 <h3 class="page-title">Admin</h3>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item active">{{ $folder_name }} Files</li>
+                    <li class="breadcrumb-item active">All Files</li>
                 </ul>
             </div>
         </div>
@@ -21,14 +21,12 @@
                     <div class="page-header">
                         <div class="row align-items-center">
                             <div class="col">
-                                <h3 class="page-title">{{ $folder_name }} Files</h3>
+                                <h3 class="page-title">All Files</h3>
                             </div>
                             <div class="col-auto text-end float-end ms-auto download-grp">
                                 <a href="javascript:void(0);" class="btn btn-outline-primary me-2"><i
                                         class="fas fa-download"></i>
                                     Download</a>
-                                <a href="{{ route('document.add', ['folder_id' => $folder_id]) }}"
-                                    class="btn btn-primary"><i class="fas fa-plus"></i></a>
                             </div>
                         </div>
                     </div>
@@ -46,7 +44,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($documents as $item)
+                                @foreach ($files as $item)
                                     <tr>
                                         <td>
                                             <h2>
@@ -76,7 +74,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $documents->links('pagination::bootstrap-5') }}
+                    {{ $files->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>

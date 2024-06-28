@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Models\Department;
 use App\Models\Document;
+use App\Models\Folder;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
@@ -15,15 +16,20 @@ class AddDocuments extends Component
 
     public $title;
     public $document;
-    public $category_name;
-    public $department;
+    public $folder_id;
+    public $folder_name;
     public $type;
+
+    public function mount()
+    {
+        $folder = Folder::findOrFail($this->folder_id);
+        $this->folder_name = $folder->name;
+
+    }
     protected $rules = [
+        'type'=>'required',
         'title' => 'required',
         'document' => 'required|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub,zip|max:1024000',
-        'category_name' => 'nullable',
-        'department' => 'nullable',
-        'type' => 'required',
     ];
     public function updated($fields)
     {
@@ -36,10 +42,8 @@ class AddDocuments extends Component
         try {
             $document = new Document();
             $document->title = $this->title;
-            $document->categoryy_name = $this->category_name;
-            $document->department_id = $this->department;
             $document->type = $this->type;
-
+            $document->folder_id = $this->folder_id;
             if ($this->document) {
                 $documentName = Str::random(5) . '.' . $this->document->extension();
                 $this->document->storeAs('assets/documents/uploads', $this->title . '-' . $documentName);

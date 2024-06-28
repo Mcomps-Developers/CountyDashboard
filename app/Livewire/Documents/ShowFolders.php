@@ -1,33 +1,23 @@
 <?php
 
-namespace App\Livewire\Pages;
+namespace App\Livewire\Documents;
 
-use App\Models\Document;
 use App\Models\Folder;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
-use Livewire\WithPagination;
 
-class ShowDocuments extends Component
+class ShowFolders extends Component
 {
-    use WithPagination;
-    public $folder_id;
-    public $folder_name;
-
-    public function mount()
-    {
-        $folder = Folder::findOrFail($this->folder_id);
-        $this->folder_name = $folder->name;
-    }
-    public function deleteDocument($rowID)
+    public function deleteFolder($rowID)
     {
         try {
-            $document = Document::findOrFail($rowID);
-            $document->delete();
+            $folder = Folder::findOrFail($rowID);
+            $folder->delete();
             notyf()
                 ->position('x', 'right')
                 ->position('y', 'top')
-                ->success('Document Deleted');
+                ->success('Folder deleted successfully!');
+            return redirect(request()->header('Referer'));
         } catch (\Throwable $th) {
             Log::error('An unexpected error occurred.', [
                 'error_message' => $th->getMessage(),
@@ -39,6 +29,7 @@ class ShowDocuments extends Component
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->error('Error occurred. Try later');
+            return redirect(request()->header('Referer'));
         } catch (\Exception $ex) {
             Log::warning('An exception occurred.', [
                 'error_message' => $ex->getMessage(),
@@ -50,11 +41,12 @@ class ShowDocuments extends Component
                 ->position('x', 'right')
                 ->position('y', 'top')
                 ->error('Error occurred. Try later');
+            return redirect(request()->header('Referer'));
         }
     }
     public function render()
     {
-        $documents = Document::orderByDesc('created_at')->where('folder_id', $this->folder_id)->paginate(12);
-        return view('livewire.pages.show-documents', ['documents' => $documents])->layout('layouts.app');
+        $folders = Folder::orderBy('name')->get();
+        return view('livewire.documents.show-folders', ['folders' => $folders])->layout('layouts.app');
     }
 }

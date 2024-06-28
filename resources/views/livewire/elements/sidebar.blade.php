@@ -29,8 +29,17 @@
 
                     </ul>
                 </li>
-                <li>
-                    <a href="{{ route('documents.show') }}"><i class="fas fa-file"></i> Documents</a>
+                <li class="submenu">
+                    <a href="#"><i class="fas fa-file"></i> <span> Documents</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('documents') }}">All Documents</a></li>
+                        @foreach ($folders as $item)
+                            <li><a
+                                    href="{{ route('documents.show', ['folder_id' => $item->id]) }}">{{ $item->name }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li>
                     <a href="{{ route('projects.show') }}"><i class="fas fa-holly-berry"></i> <span>Projects</span></a>

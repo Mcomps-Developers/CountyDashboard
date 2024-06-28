@@ -14,4 +14,8 @@ class Document extends Model
     {
         return $this->belongsTo(Department::class, 'department_id');
     }
+    public function folder()
+    {
+        return $this->belongsTo(Folder::class, 'folder_id');
+    }
 }
