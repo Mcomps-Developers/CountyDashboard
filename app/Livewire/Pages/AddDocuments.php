@@ -20,7 +20,7 @@ class AddDocuments extends Component
     public $type;
     protected $rules = [
         'title' => 'required',
-        'document' => 'nullable|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub',
+        'document' => 'nullable|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub,zip|max:1024000',
         'category_name' => 'nullable',
         'department' => 'nullable',
         'type' => 'required',
