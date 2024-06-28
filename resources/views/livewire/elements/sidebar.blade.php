@@ -34,6 +34,7 @@
                             class="menu-arrow"></span></a>
                     <ul>
                         <li><a href="{{ route('documents') }}">All Documents</a></li>
+                        <li><a href="{{ route('folders.show') }}">All Folders</a></li>
                         @foreach ($folders as $item)
                             <li><a
                                     href="{{ route('documents.show', ['folder_id' => $item->id]) }}">{{ $item->name }}</a>

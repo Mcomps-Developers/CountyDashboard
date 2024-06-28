@@ -47,6 +47,6 @@ class AllDocuments extends Component
     public function render()
     {
         $files = Document::orderBy('folder_id')->paginate(12);
-        return view('livewire.documents.all-documents')->layout('layouts.app');
+        return view('livewire.documents.all-documents',['files'=>$files])->layout('layouts.app');
     }
 }
