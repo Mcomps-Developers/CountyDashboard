@@ -30,6 +30,9 @@
                     </ul>
                 </li>
                 <li>
+                    <a href="{{ route('documents.show') }}"><i class="fas fa-file"></i> Documents</a>
+                </li>
+                <li>
                     <a href="{{ route('projects.show') }}"><i class="fas fa-holly-berry"></i> <span>Projects</span></a>
                 </li>
                 <li>
