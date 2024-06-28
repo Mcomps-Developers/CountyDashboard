@@ -42,9 +42,9 @@ class AddDocuments extends Component
             $document->type = $this->type;
 
             if ($this->document) {
-                $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->document->extension();
-                $this->document->storeAs('assets/documents/uploads', $photoName);
-                $document->document = $photoName;
+                $documentName = Carbon::now() . '.' . $this->document->extension();
+                $this->document->storeAs('assets/documents/uploads', $documentName);
+                $document->document = $this->title . $documentName;
             }
             $document->save();
             notyf()
