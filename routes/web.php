@@ -87,7 +87,7 @@ Route::middleware('auth')->group(function () {
         // Files
         Route::get('/show/{folder_id}', ShowDocuments::class)->name('documents.show');
         Route::get('/add/{folder_id}', AddDocuments::class)->name('document.add');
-        Route::get('/edit/{file_id}', EditDocuments::class)->name('document.edit');
+        Route::get('/file/edit/{file_id}', EditDocuments::class)->name('document.edit');
         Route::get('/all-documents', AllDocuments::class)->name('documents');
     });
 
