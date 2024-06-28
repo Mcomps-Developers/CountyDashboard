@@ -2,12 +2,85 @@
 
 namespace App\Livewire\Pages;
 
+use App\Models\Department;
+use App\Models\Document;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 
 class AddDocuments extends Component
 {
+    use WithFileUploads;
+
+    public $title;
+    public $document;
+    public $category_name;
+    public $department;
+    public $type;
+    protected $rules = [
+        'title' => 'required',
+        'document' => 'nullable|mimes:doc,docx,pdf,xlx,xlxs,pptx,ppt,pub',
+        'category_name' => 'nullable',
+        'department' => 'nullable',
+        'type' => 'required',
+    ];
+
+    public function updated($fields)
+    {
+        $this->validateOnly($fields);
+    }
+
+    public function saveChanges()
+    {
+        $this->validate();
+        try {
+            $document = new Document();
+            $document->title = $this->title;
+            $document->category_name = $this->category_name;
+            $document->department_id = $this->department;
+            $document->type = $this->type;
+
+            if ($this->document) {
+                $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->document->extension();
+                $this->document->storeAs('assets/documents/uploads', $photoName);
+                $document->document = $photoName;
+            }
+            $document->save();
+            notyf()
+                ->position('x', 'right')
+                ->position('y', 'top')
+                ->success('Uploaded successfully.');
+            return redirect(request()->header('Referer'));
+        } catch (\Throwable $th) {
+            Log::error('An unexpected error occurred.', [
+                'error_message' => $th->getMessage(),
+                'file' => $th->getFile(),
+                'line' => $th->getLine(),
+                'stack_trace' => $th->getTraceAsString()
+            ]);
+            notyf()
+                ->position('x', 'right')
+                ->position('y', 'top')
+                ->error('Error occurred. Try later');
+            return redirect(request()->header('Referer'));
+        } catch (\Exception $ex) {
+            Log::warning('An exception occurred.', [
+                'error_message' => $ex->getMessage(),
+                'file' => $ex->getFile(),
+                'line' => $ex->getLine(),
+                'stack_trace' => $ex->getTraceAsString()
+            ]);
+            notyf()
+                ->position('x', 'right')
+                ->position('y', 'top')
+                ->error('Error occurred. Try later');
+            return redirect(request()->header('Referer'));
+        }
+    }
     public function render()
     {
-        return view('livewire.pages.add-documents');
+        $departments = Department::orderBy('title')->get();
+        return view('livewire.pages.add-documents', ['departments' => $departments])->layout('layouts.app');
     }
 }
