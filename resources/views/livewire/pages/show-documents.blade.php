@@ -58,7 +58,7 @@
                                                 @if ($item->department_id)
                                                     <a>{{ $item->department->title }}</a>
                                                 @else
-                                                    <a>{{ $item->category_name }}</a>
+                                                    <a>{{ $item->categoryy_name }}</a>
                                                 @endif
                                             </h2>
                                         </td>
