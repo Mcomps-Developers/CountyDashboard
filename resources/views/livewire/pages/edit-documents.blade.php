@@ -45,7 +45,7 @@
                                 <div class="col-lg-4 col-md-12">
                                     <div class="form-group">
                                         <label>Folder<span class="text-danger">*</span></label>
-                                        <select name="" id="" wire:model.live='folder'>
+                                        <select name="" id="" class="form-control" wire:model.live='folder'>
                                             <option>--</option>
                                             @foreach ($folders as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
