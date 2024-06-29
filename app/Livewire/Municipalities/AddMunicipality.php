@@ -5,12 +5,12 @@ namespace App\Livewire\Municipalities;
 use App\Models\Municipality;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class AddMunicipality extends Component
 {
     public $name;
     public $pageContent;
-    public $slug;
     public $rules = [
         'name' => 'required|unique:municipalities,name',
         'pageContent' => 'required|string',
@@ -25,7 +25,7 @@ class AddMunicipality extends Component
         $this->validate();
         try {
             $municipality = new Municipality();
-            $municipality->slug = $this->slug;
+            $municipality->slug = Str::slug($this->name);
             $municipality->name = $this->name;
             $municipality->content = $this->pageContent;
             $municipality->save();
