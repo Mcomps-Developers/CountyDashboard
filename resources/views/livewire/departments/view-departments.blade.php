@@ -58,7 +58,7 @@
                                             <a href="{{ route('directory.view', ['slug' => $item->slug]) }}"
                                                 title="Directories"><i class="fa fa-list"></i></a>
                                             <a href="{{ route('officers.view', ['slug' => $item->slug]) }}"
-                                                title="Directories"><i class="fa fa-users"></i></a>
+                                                title="Chief Officers"><i class="fa fa-users"></i></a>
                                             <a href="{{ route('department.edit', ['slug' => $item->slug]) }}"
                                                 style="padding-left: 6px;"><i class="fa fa-edit text-success"></i></a>
                                             <a href="javascript:void(0);"
