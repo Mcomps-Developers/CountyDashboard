@@ -1,6 +1,6 @@
 <div class="content container-fluid">
     @section('title')
-    Departments
+        Departments
     @endsection
     <div class="page-header">
         <div class="row align-items-center">
@@ -46,25 +46,28 @@
                             </thead>
                             <tbody>
                                 @foreach ($departments as $item)
-                                <tr>
-                                    <td>
-                                        <h2>
-                                            <a>{{ $item->title }}</a>
-                                        </h2>
-                                    </td>
-                                    <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
-                                    <td>{{ date('d M Y h:iA', strtotime($item->updated_at)) }}</td>
-                                    <td>
-                                        <a href="{{route('directory.view',['slug'=>$item->slug])}}"
-                                            title="Directories"><i class="fa fa-list"></i></a>
-                                        <a href="{{route('department.edit',['slug'=>$item->slug])}}"
-                                            style="padding-left: 6px;"><i class="fa fa-edit text-success"></i></a>
-                                        <a href="javascript:void(0);" wire:target='deleteDepartment({{ $item->id }})'
-                                            wire:click.prevent='deleteDepartment({{ $item->id }})'
-                                            wire:confirm='Are you sure you want to delete?'><i
-                                                class="fa fa-trash text-danger" style="padding-left: 6px;"></i></a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td>
+                                            <h2>
+                                                <a>{{ $item->title }}</a>
+                                            </h2>
+                                        </td>
+                                        <td>{{ date('d M Y h:iA', strtotime($item->created_at)) }}</td>
+                                        <td>{{ date('d M Y h:iA', strtotime($item->updated_at)) }}</td>
+                                        <td>
+                                            <a href="{{ route('directory.view', ['slug' => $item->slug]) }}"
+                                                title="Directories"><i class="fa fa-list"></i></a>
+                                            <a href="{{ route('officers.view', ['slug' => $item->slug]) }}"
+                                                title="Directories"><i class="fa fa-users"></i></a>
+                                            <a href="{{ route('department.edit', ['slug' => $item->slug]) }}"
+                                                style="padding-left: 6px;"><i class="fa fa-edit text-success"></i></a>
+                                            <a href="javascript:void(0);"
+                                                wire:target='deleteDepartment({{ $item->id }})'
+                                                wire:click.prevent='deleteDepartment({{ $item->id }})'
+                                                wire:confirm='Are you sure you want to delete?'><i
+                                                    class="fa fa-trash text-danger" style="padding-left: 6px;"></i></a>
+                                        </td>
+                                    </tr>
                                 @endforeach
                             </tbody>
                         </table>
