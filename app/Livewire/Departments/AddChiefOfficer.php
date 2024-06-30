@@ -12,6 +12,7 @@ use Livewire\Features\SupportFileUploads\WithFileUploads;
 class AddChiefOfficer extends Component
 {
     use WithFileUploads;
+    public $slug;
     public $name;
     public $photo;
     public $profile;
