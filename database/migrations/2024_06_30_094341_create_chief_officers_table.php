@@ -14,10 +14,11 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('photo');
-            $table->longText('about_chief_officer');
-            $table->string('department_title')->nullable();
+            $table->longText('profile');
+            $table->string('designation')->nullable();
             $table->unsignedBigInteger('department_id');
             $table->timestamps();
+            $table->softDeletes();
             $table->foreign('department_id')->references('id')->on('departments')->onDelete('cascade');
         });
     }

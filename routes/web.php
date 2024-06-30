@@ -8,11 +8,14 @@ use App\Livewire\Blog\AddBlogCategory;
 use App\Livewire\Blog\BlogCategories;
 use App\Livewire\Blog\BlogCategory;
 use App\Livewire\Blog\EditBlog;
+use App\Livewire\Departments\AddChiefOfficer;
 use App\Livewire\Departments\AddDepartment;
 use App\Livewire\Departments\Directorates\AddDirectorates;
 use App\Livewire\Departments\Directorates\EditDirectorates;
 use App\Livewire\Departments\Directorates\ShowDirectorates;
+use App\Livewire\Departments\EditChiefOfficer;
 use App\Livewire\Departments\EditDepartment;
+use App\Livewire\Departments\ShowChiefOfficers;
 use App\Livewire\Departments\ViewDepartments;
 use App\Livewire\Documents\AddFolders;
 use App\Livewire\Documents\AllDocuments;
@@ -129,6 +132,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/view/{slug}', ShowDirectorates::class)->name('directory.view');
             Route::get('/add/{slug}', AddDirectorates::class)->name('directory.add');
             Route::get('/edit/{id}', EditDirectorates::class)->name('directory.edit');
+        });
+        Route::prefix('chief-officer')->group(function () {
+            Route::get('/view/{slug}', ShowChiefOfficers::class)->name('officers.view');
+            Route::get('/add/{slug}', AddChiefOfficer::class)->name('officer.add');
+            Route::get('/edit/{id}', EditChiefOfficer::class)->name('officer.edit');
         });
     });
 });
