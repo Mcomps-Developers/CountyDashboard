@@ -61,8 +61,7 @@
                             Board</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('crb') }}"><i class="fas fa-comment-dollar"></i> <span>County Revenue
-                            Board</span></a>
+                    <a href="{{ route('crb') }}"><i class="fas fa-comment-dollar"></i> <span>County Secretariate</span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="fas fa-calendar-day"></i> <span> Events</span>

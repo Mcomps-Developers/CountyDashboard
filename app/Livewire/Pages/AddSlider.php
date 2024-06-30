@@ -65,7 +65,7 @@ class AddSlider extends Component
             if ($this->image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->image->extension();
                 $this->image->storeAs('assets/img/sliders', $photoName);
-                $slider->photo = $photoName;
+                $slider->image = $photoName;
             }
             $slider->save();
             notyf()
