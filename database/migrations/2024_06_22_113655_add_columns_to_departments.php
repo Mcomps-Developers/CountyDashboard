@@ -19,13 +19,6 @@ return new class extends Migration
             $table->string('cecm_department_phone')->nullable();
             $table->string('cecm_department_email')->nullable();
             $table->longText('about_cecm')->nullable();
-            // Chief Office
-            $table->string('chief_officer_name')->nullable();
-            $table->string('chief_officer_photo')->nullable();
-            $table->string('chief_officer_date_of_birth')->nullable();
-            $table->string('chief_officer_department_phone')->nullable();
-            $table->string('chief_officer_department_email')->nullable();
-            $table->longText('about_chief_officer')->nullable();
         });
     }
 
