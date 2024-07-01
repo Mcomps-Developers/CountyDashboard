@@ -83,7 +83,7 @@
                         <div class="bank-inner-details">
                             <div class="row">
                                 <h3>CECM Profile</h3>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Full Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='cecm_name'>
@@ -92,7 +92,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Date of Birth<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" wire:model.live='cecm_date_of_birth'>
@@ -101,7 +101,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Office Phone Number<span class="text-danger">*</span></label>
                                         <input type="tel" class="form-control"
@@ -111,7 +111,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Office Email<span class="text-danger">*</span></label>
                                         <input type="email" class="form-control"
