@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 @if ($cover_image)
-                                <div class="col-lg-6 col-md-12">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
@@ -85,7 +85,7 @@
                         <div class="bank-inner-details">
                             <div class="row">
                                 <h3>CECM Profile</h3>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Full Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='cecm_name'>
@@ -94,7 +94,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Date of Birth<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" wire:model.live='cecm_date_of_birth'>
@@ -103,7 +103,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Office Phone Number<span class="text-danger">*</span></label>
                                         <input type="tel" class="form-control" wire:model.live='cecm_department_phone'>
@@ -112,7 +112,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Office Email<span class="text-danger">*</span></label>
                                         <input type="email" class="form-control"
