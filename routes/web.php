@@ -30,6 +30,7 @@ use App\Livewire\HomeComponent;
 use App\Livewire\Municipalities\AddMunicipality;
 use App\Livewire\Municipalities\EditMunicipality;
 use App\Livewire\Municipalities\ShowMunicipalities;
+use App\Livewire\Pages\AboutCounty;
 use App\Livewire\Pages\AddDocuments;
 use App\Livewire\Pages\AddSlider;
 use App\Livewire\Pages\CountyRevenueBoard;
@@ -74,7 +75,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
         Route::get('/cpsb', PublicService::class)->name('public.service');
-        Route::get('/crb', CountyRevenueBoard::class)->name('crb');
+        Route::get('/secretariat', CountyRevenueBoard::class)->name('crb');
+        Route::get('/about',AboutCounty::class)->name('about.county');
     });
 
     // Projects

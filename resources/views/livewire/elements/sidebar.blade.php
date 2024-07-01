@@ -96,6 +96,9 @@
                     <span>Pages</span>
                 </li>
                 <li>
+                    <a href="{{ route('about.county') }}"><i class="fas fa-info-circle"></i> <span>About County</span></a>
+                </li>
+                <li>
                     <a href="{{ route('home.sliders') }}"><i class="fas fa-image"></i> <span>Home Slider</span></a>
                 </li>
                 <li>
