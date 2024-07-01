@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->longText('content')->default('Coming soon!');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
