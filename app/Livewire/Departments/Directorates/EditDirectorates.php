@@ -19,12 +19,14 @@ class EditDirectorates extends Component
     public $office_phone;
     public $office_email;
     public $about;
+    public $director_profile;
 
     public function mount($id)
     {
         $this->id = $id;
         $directorate = Directorate::findOrFail($this->id);
         $this->title = $directorate->title;
+        $directorate->director_profile = $this->director_profile;
         $this->director_name = $directorate->leader_name;
         $this->director_date_of_birth = $directorate->leader_date_of_birth;
         $this->office_phone = $directorate->office_phone;
@@ -39,6 +41,7 @@ class EditDirectorates extends Component
         'about' => 'nullable|string',
         'director_name' => 'required',
         'title' => 'required',
+        'director_profile' => 'nullable|string',
     ];
 
     public function updated($fields)

@@ -105,6 +105,16 @@
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group" wire:ignore>
+                                        <label>Director Profile</label>
+                                        <textarea id="director_profile" class="form-control" wire:model.live='director_profile' columns="2"
+                                            rows="4"></textarea>
+                                    </div>
+                                    @error('director_profile')
+                                    <p class="text text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group" wire:ignore>
                                         <label>Describe Directorate</label>
                                         <textarea id="about" class="form-control" wire:model.live='about' columns="2"
                                             rows="4"></textarea>
@@ -139,6 +149,18 @@
                         tinymce.triggerSave();
                         var sd_data = $('#about').val();
                         @this.set('about', sd_data);
+                    });
+                }
+            });
+            tinymce.init({
+                selector: '#director_profile',
+                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                setup: function(editor) {
+                    editor.on('Change', function(e) {
+                        tinymce.triggerSave();
+                        var sd_data = $('#director_profile').val();
+                        @this.set('director_profile', sd_data);
                     });
                 }
             });
