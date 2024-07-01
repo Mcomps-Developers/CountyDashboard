@@ -26,7 +26,7 @@ class EditDirectorates extends Component
         $this->id = $id;
         $directorate = Directorate::findOrFail($this->id);
         $this->title = $directorate->title;
-        $directorate->director_profile = $this->director_profile;
+        $this->director_profile = $directorate->director_profile;
         $this->director_name = $directorate->leader_name;
         $this->director_date_of_birth = $directorate->leader_date_of_birth;
         $this->office_phone = $directorate->office_phone;
@@ -56,6 +56,7 @@ class EditDirectorates extends Component
             $directorate = Directorate::findOrFail($this->id);
             $directorate->title = $this->title;
             $directorate->leader_name = $this->director_name;
+            $directorate->director_profile = $this->director_profile;
             $directorate->leader_date_of_birth = $this->director_date_of_birth;
             $directorate->office_phone = $this->office_phone;
             $directorate->office_email = $this->office_email;
