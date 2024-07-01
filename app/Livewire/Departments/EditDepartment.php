@@ -32,12 +32,8 @@ class EditDepartment extends Component
         $department = Department::Where('slug', $this->slug)->first();
         $this->description = $department->description;
         $this->title = $department->title;
-        $this->chief_officer_name = $department->chief_officer_name;
-        $this->chief_officer_date_of_birth = $department->chief_officer_date_of_birth;
-        $this->chief_officer_department_phone = $department->chief_officer_department_phone;
-        $this->chief_officer_department_email = $department->chief_officer_department_email;
-        $this->about_chief_officer = $department->about_chief_officer;
         $this->cecm_name = $department->cecm_name;
+        $this->about_cecm = $department->about_cecm;
         $this->cecm_date_of_birth = $department->cecm_date_of_birth;
         $this->cecm_department_phone = $department->cecm_department_phone;
         $this->cecm_department_email = $department->cecm_department_email;
@@ -87,7 +83,7 @@ class EditDepartment extends Component
                 $this->cecm_photo->storeAs('assets/img/departments/cecm', $photoName);
                 $department->cecm_photo = $photoName;
             }
-            
+
             $department->save();
             notyf()
                 ->position('x', 'right')
