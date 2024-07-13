@@ -8,25 +8,43 @@ use App\Livewire\Blog\AddBlogCategory;
 use App\Livewire\Blog\BlogCategories;
 use App\Livewire\Blog\BlogCategory;
 use App\Livewire\Blog\EditBlog;
+use App\Livewire\Departments\AddChiefOfficer;
 use App\Livewire\Departments\AddDepartment;
 use App\Livewire\Departments\Directorates\AddDirectorates;
 use App\Livewire\Departments\Directorates\EditDirectorates;
 use App\Livewire\Departments\Directorates\ShowDirectorates;
+use App\Livewire\Departments\EditChiefOfficer;
 use App\Livewire\Departments\EditDepartment;
+use App\Livewire\Departments\ShowChiefOfficers;
 use App\Livewire\Departments\ViewDepartments;
+use App\Livewire\Documents\AddFolders;
+use App\Livewire\Documents\AllDocuments;
+use App\Livewire\Documents\EditFolders;
+use App\Livewire\Documents\ShowFolders;
 use App\Livewire\Events\AddEvent;
 use App\Livewire\Events\AddEventCategory;
 use App\Livewire\Events\EditEvent;
 use App\Livewire\Events\EventCategories;
 use App\Livewire\Events\EventsPerCategory;
 use App\Livewire\HomeComponent;
+use App\Livewire\Municipalities\AddMunicipality;
+use App\Livewire\Municipalities\EditMunicipality;
+use App\Livewire\Municipalities\ShowMunicipalities;
+use App\Livewire\Pages\AboutCounty;
+use App\Livewire\Pages\AddDocuments;
 use App\Livewire\Pages\AddSlider;
+use App\Livewire\Pages\CountyRevenueBoard;
 use App\Livewire\Pages\DeputyGovernor;
+use App\Livewire\Pages\EditDocuments;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
 use App\Livewire\Pages\PublicService;
+use App\Livewire\Pages\ShowDocuments;
 use App\Livewire\Pages\TheGovernor;
+use App\Livewire\Projects\AddProject;
+use App\Livewire\Projects\EditProject;
+use App\Livewire\Projects\ShowProjects;
 use App\Livewire\Wards\AddShowWard;
 use App\Livewire\Wards\EditShowWard;
 use App\Livewire\Wards\ShowWards;
@@ -50,12 +68,41 @@ Route::middleware('auth')->group(function () {
         Route::get('/category/{slug}/add', AddEvent::class)->name('event.add');
         Route::get('/edit/{reference}', EditEvent::class)->name('event.edit');
     });
+    // Pages
     Route::prefix('pages')->group(function () {
         Route::get('/stats', HomeStats::class)->name('stats');
         Route::get('/welcome-note', HomeWelcome::class)->name('home.welcome');
         Route::get('/the-governor', TheGovernor::class)->name('the-governor');
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
-        Route::get('/public-service-board',PublicService::class)->name('public.service');
+        Route::get('/cpsb', PublicService::class)->name('public.service');
+        Route::get('/secretariat', CountyRevenueBoard::class)->name('crb');
+        Route::get('/about',AboutCounty::class)->name('about.county');
+    });
+
+    // Projects
+    Route::prefix('projects')->group(function () {
+        Route::get('/show', ShowProjects::class)->name('projects.show');
+        Route::get('/add', AddProject::class)->name('project.add');
+        Route::get('/edit/{project_id}', EditProject::class)->name('project.edit');
+    });
+
+    // Documents
+    Route::prefix('folders')->group(function () {
+        Route::get('/show', ShowFolders::class)->name('folders.show');
+        Route::get('/add', AddFolders::class)->name('folder.add');
+        Route::get('/edit/{folder_id}', EditFolders::class)->name('folder.edit');
+
+        // Files
+        Route::get('/show/{folder_id}', ShowDocuments::class)->name('documents.show');
+        Route::get('/add/{folder_id}', AddDocuments::class)->name('document.add');
+        Route::get('/file/edit/{file_id}', EditDocuments::class)->name('document.edit');
+        Route::get('/all-documents', AllDocuments::class)->name('documents');
+    });
+    // Municipalities
+    Route::prefix('municipality')->group(function () {
+        Route::get('/show', ShowMunicipalities::class)->name('municipalities');
+        Route::get('/add', AddMunicipality::class)->name('municipality.add');
+        Route::get('/edit/{municipality_id}', EditMunicipality::class)->name('municipality.edit');
     });
     // Sliders
     Route::prefix('sliders')->group(function () {
@@ -87,6 +134,11 @@ Route::middleware('auth')->group(function () {
             Route::get('/view/{slug}', ShowDirectorates::class)->name('directory.view');
             Route::get('/add/{slug}', AddDirectorates::class)->name('directory.add');
             Route::get('/edit/{id}', EditDirectorates::class)->name('directory.edit');
+        });
+        Route::prefix('chief-officer')->group(function () {
+            Route::get('/view/{slug}', ShowChiefOfficers::class)->name('officers.view');
+            Route::get('/add/{slug}', AddChiefOfficer::class)->name('officer.add');
+            Route::get('/edit/{id}', EditChiefOfficer::class)->name('officer.edit');
         });
     });
 });

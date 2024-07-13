@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
-use Intervention\Image\Laravel\Facades\Image;
 
 class AddBlog extends Component
 {

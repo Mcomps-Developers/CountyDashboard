@@ -50,7 +50,7 @@
                                     </div>
                                 </div>
                                 @if ($cover_image)
-                                <div class="col-lg-6 col-md-12">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="change-photo-btn">
                                             <div>
@@ -85,7 +85,7 @@
                         <div class="bank-inner-details">
                             <div class="row">
                                 <h3>CECM Profile</h3>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Full Name<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" wire:model.live='cecm_name'>
@@ -94,7 +94,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Date of Birth<span class="text-danger">*</span></label>
                                         <input type="date" class="form-control" wire:model.live='cecm_date_of_birth'>
@@ -103,7 +103,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Office Phone Number<span class="text-danger">*</span></label>
                                         <input type="tel" class="form-control" wire:model.live='cecm_department_phone'>
@@ -112,7 +112,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-12 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group">
                                         <label>Office Email<span class="text-danger">*</span></label>
                                         <input type="email" class="form-control"
@@ -166,100 +166,6 @@
                                             columns="2" rows="4"></textarea>
                                     </div>
                                     @error('about_cecm')
-                                    <p class="text text-danger">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="card-body">
-                        <div class="bank-inner-details">
-                            <div class="row">
-                                <h3>Chief Officer Profile</h3>
-                                <div class="col-lg-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Full Name<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" wire:model.live='chief_officer_name'>
-                                        @error('chief_officer_name')
-                                        <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Date of Birth<span class="text-danger">*</span></label>
-                                        <input type="date" class="form-control"
-                                            wire:model.live='chief_officer_date_of_birth'>
-                                        @error('chief_officer_date_of_birth')
-                                        <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Office Phone Number<span class="text-danger">*</span></label>
-                                        <input type="tel" class="form-control"
-                                            wire:model.live='chief_officer_department_phone'>
-                                        @error('chief_officer_department_phone')
-                                        <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-3">
-                                    <div class="form-group">
-                                        <label>Office Email<span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control"
-                                            wire:model.live='chief_officer_department_email'>
-                                        @error('chief_officer_department_email')
-                                        <p class="text text-danger">{{ $message }}</p>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="form-group">
-                                        <div class="change-photo-btn">
-                                            <div>
-                                                @if ($chief_officer_photo)
-                                                <p>Change profile (optional)</p>
-                                                @else
-                                                <p>Upload profile (optional)</p>
-                                                @endif
-                                                @error('chief_officer_photo')
-                                                <p class="text text-danger"></p>
-                                                <small>{{ $message }}</small>
-                                                @enderror
-
-                                                <p wire:loading wire:target='chief_officer_photo'>Uploading...</p>
-                                            </div>
-                                            <input type="file" class="upload" wire:model.live='chief_officer_photo'>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                @if ($chief_officer_photo)
-                                <div class="col-lg-6 col-md-12">
-                                    <div class="form-group">
-                                        <div class="change-photo-btn">
-                                            <div>
-                                                @if ($chief_officer_photo)
-                                                <img src="{{ $chief_officer_photo->temporaryUrl() }}" width="200"
-                                                    height="150" alt="">
-                                                @else
-                                                <p>No Image has been uploaded</p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-                                <div class="col-lg-12 col-md-12">
-                                    <div class="form-group" wire:ignore>
-                                        <label>Chief Officer Biography</label>
-                                        <textarea id="about_chief_officer" class="form-control"
-                                            wire:model.live='about_chief_officer' columns="2" rows="4"></textarea>
-                                    </div>
-                                    @error('about_chief_officer')
                                     <p class="text text-danger">{{ $message }}</p>
                                     @enderror
                                 </div>

@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class ViewDepartments extends Component
 {
-    public function deleteDepartment($rowID)
+    public function deleteDepartment($rowID) 
     {
         try {
             $department = Department::findOrFail($rowID);

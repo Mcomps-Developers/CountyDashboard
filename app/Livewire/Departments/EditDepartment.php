@@ -24,13 +24,7 @@ class EditDepartment extends Component
     public $cecm_department_phone;
     public $cecm_department_email;
     public $about_cecm;
-    // CHIEF OFFICER PROFILE
-    public $chief_officer_name;
-    public $chief_officer_photo;
-    public $chief_officer_date_of_birth;
-    public $chief_officer_department_phone;
-    public $chief_officer_department_email;
-    public $about_chief_officer;
+
 
     public function mount($slug)
     {
@@ -38,25 +32,15 @@ class EditDepartment extends Component
         $department = Department::Where('slug', $this->slug)->first();
         $this->description = $department->description;
         $this->title = $department->title;
-        $this->chief_officer_name = $department->chief_officer_name;
-        $this->chief_officer_date_of_birth = $department->chief_officer_date_of_birth;
-        $this->chief_officer_department_phone = $department->chief_officer_department_phone;
-        $this->chief_officer_department_email = $department->chief_officer_department_email;
-        $this->about_chief_officer = $department->about_chief_officer;
         $this->cecm_name = $department->cecm_name;
+        $this->about_cecm = $department->about_cecm;
         $this->cecm_date_of_birth = $department->cecm_date_of_birth;
         $this->cecm_department_phone = $department->cecm_department_phone;
         $this->cecm_department_email = $department->cecm_department_email;
     }
 
     protected $rules = [
-        // Chief officer
-        'about_chief_officer' => 'nullable|string',
-        'chief_officer_department_email' => 'nullable|email',
-        'chief_officer_department_phone' => 'nullable|numeric|digits:12',
-        'chief_officer_date_of_birth' => 'nullable|date',
-        'chief_officer_photo' => 'nullable|mimes:jpg,png,jpeg|max:5120',
-        'chief_officer_name' => 'nullable|string',
+
         // CECM
         'about_cecm' => 'nullable|string|max:750',
         'cecm_department_email' => 'nullable|email',
@@ -99,17 +83,7 @@ class EditDepartment extends Component
                 $this->cecm_photo->storeAs('assets/img/departments/cecm', $photoName);
                 $department->cecm_photo = $photoName;
             }
-            // Chief Officer
-            $department->about_chief_officer = $this->about_chief_officer;
-            $department->chief_officer_department_email = $this->chief_officer_department_email;
-            $department->chief_officer_department_phone = $this->chief_officer_department_phone;
-            $department->chief_officer_date_of_birth = $this->chief_officer_date_of_birth;
-            $department->chief_officer_name = $this->chief_officer_name;
-            if ($this->chief_officer_photo) {
-                $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->chief_officer_photo->extension();
-                $this->chief_officer_photo->storeAs('assets/img/departments/chief_officer', $photoName);
-                $department->chief_officer_photo = $photoName;
-            }
+
             $department->save();
             notyf()
                 ->position('x', 'right')

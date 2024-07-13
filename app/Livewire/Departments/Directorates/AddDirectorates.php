@@ -20,6 +20,7 @@ class AddDirectorates extends Component
     public $office_phone;
     public $office_email;
     public $about;
+    public $director_profile;
 
     public function mount($slug)
     {
@@ -33,6 +34,7 @@ class AddDirectorates extends Component
         'about' => 'nullable|string',
         'director_name' => 'required',
         'title' => 'required',
+        'director_profile'=>'nullable|string',
     ];
 
     public function updated($fields)
@@ -47,6 +49,7 @@ class AddDirectorates extends Component
         try {
             $directorate = new Directorate();
             $directorate->title = $this->title;
+            $directorate->director_profile=$this->director_profile;
             $directorate->leader_name = $this->director_name;
             $directorate->leader_date_of_birth = $this->director_date_of_birth;
             $directorate->office_phone = $this->office_phone;
