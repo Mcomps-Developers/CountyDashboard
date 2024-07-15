@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
         "php-flasher/flasher-notyf-laravel": "^2.0",
+        "rap2hpoutre/laravel-log-viewer": "^2.4",
         "spatie/laravel-backup": "^9.0"
     },
     "require-dev": {

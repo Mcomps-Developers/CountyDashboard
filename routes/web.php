@@ -141,4 +141,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/edit/{id}', EditChiefOfficer::class)->name('officer.edit');
         });
     });
+
+
+    Route::prefix('spur')->group(function(){
+        Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
+    });
 });
