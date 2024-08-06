@@ -35,7 +35,7 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select class="form-control select" wire:model.live='status'>
-                                        <option>Select Class</option>
+                                        <option>-:-</option>
                                         <option value="active">Active</option>
                                         <option value="inactive">Inactive</option>
                                     </select>
@@ -116,8 +116,8 @@
                                         <div class="change-photo-btn">
                                             <div>
                                                 @if ($image)
-                                                    <img src="{{ $image->temporaryUrl() }}" width="90"
-                                                        height="60" alt="">
+                                                    <img src="{{ $image->temporaryUrl() }}"
+                                                        style="transform: scale(0.5)">
                                                 @else
                                                     <p>No slider photo has been uploaded</p>
                                                 @endif

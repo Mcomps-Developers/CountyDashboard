@@ -36,6 +36,7 @@ use App\Livewire\Pages\AddSlider;
 use App\Livewire\Pages\CountyRevenueBoard;
 use App\Livewire\Pages\DeputyGovernor;
 use App\Livewire\Pages\EditDocuments;
+use App\Livewire\Pages\EditSlider;
 use App\Livewire\Pages\HomeSliders;
 use App\Livewire\Pages\HomeStats;
 use App\Livewire\Pages\HomeWelcome;
@@ -76,7 +77,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/deputy-governor', DeputyGovernor::class)->name('deputy-governor');
         Route::get('/cpsb', PublicService::class)->name('public.service');
         Route::get('/secretariat', CountyRevenueBoard::class)->name('crb');
-        Route::get('/about',AboutCounty::class)->name('about.county');
+        Route::get('/about', AboutCounty::class)->name('about.county');
     });
 
     // Projects
@@ -108,7 +109,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('sliders')->group(function () {
         Route::get('/view', HomeSliders::class)->name('home.sliders');
         Route::get('/add', AddSlider::class)->name('slider.add');
-        Route::get('/edit/{reference}', AddSlider::class)->name('slider.edit');
+        Route::get('/edit/{reference}', EditSlider::class)->name('slider.edit');
     });
 
     // Subcounties
@@ -143,7 +144,7 @@ Route::middleware('auth')->group(function () {
     });
 
 
-    Route::prefix('spur')->group(function(){
+    Route::prefix('spur')->group(function () {
         Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
     });
 });
