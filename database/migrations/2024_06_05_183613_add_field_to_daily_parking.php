@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('municipalities', function (Blueprint $table) {
-            $table->string('slug')->unique()->nullable();
-            $table->longText('content')->nullable();
+        Schema::table('daily_parkings', function (Blueprint $table) {
+            $table->string('serial')->unique();
         });
     }
 
@@ -22,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('municipalities');
+        Schema::table('daily_parkings', function (Blueprint $table) {
+            //
+        });
     }
 };

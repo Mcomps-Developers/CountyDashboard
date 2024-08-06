@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 
 return new class extends Migration
 {
@@ -14,7 +15,7 @@ return new class extends Migration
         Schema::create('governors', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('main_manifesto')->default('Equality, Empowerment, Development');
+            $table->string('main_manifesto')->nullable();
             $table->date('date_of_birth');
             $table->string('office_phone')->nullable();
             $table->string('office_email')->nullable();
@@ -23,11 +24,14 @@ return new class extends Migration
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();
             $table->text('welcome_message');
-            $table->longText('about')->default('Write about the governor...');
+            $table->longText('about')->nullable();
             $table->string('photo');
             $table->timestamps();
             $table->softDeletes();
         });
+        Artisan::call('db:seed', [
+            '--class' => 'Database\\Seeders\\GovernorsTableSeeder',
+        ]);
     }
 
     /**

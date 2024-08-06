@@ -3,24 +3,20 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('public_services', function (Blueprint $table) {
+        Schema::create('subcounties', function (Blueprint $table) {
             $table->id();
-            $table->longText('content')->nullable();
+            $table->string('name')->unique();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
             $table->softDeletes();
         });
-        Artisan::call('db:seed', [
-            '--class' => 'Database\\Seeders\\PublicServicesTableSeeder',
-        ]);
     }
 
     /**
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('public_services');
+        Schema::dropIfExists('subcounties');
     }
 };

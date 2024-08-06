@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('municipalities', function (Blueprint $table) {
-            $table->string('slug')->unique()->nullable();
-            $table->longText('content')->nullable();
+        Schema::create('vehicles', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->unique();
+            $table->float('charges')->default(1);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('municipalities');
+        Schema::dropIfExists('vehicles');
     }
 };
