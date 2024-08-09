@@ -108,6 +108,22 @@ class DeputyGovernor extends Component
                 if ($this->photo) {
                     $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
                     $this->photo->storeAs('assets/img/about/deputy-governor', $photoName);
+
+                    $sourcePath = public_path('assets/img/about/deputy-governor/' . $photoName);
+                    $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/about/deputy-governor/';
+                    $destinationPath = $destinationDir . $photoName;
+
+                    if (!file_exists($destinationDir)) {
+                        mkdir($destinationDir, 0755, true);
+                    }
+                    if (file_exists($sourcePath)) {
+                        if (copy($sourcePath, $destinationPath)) {
+                        } else {
+                            throw new \Exception("Failed to copy file to: " . $destinationPath);
+                        }
+                    } else {
+                        throw new \Exception("File not found at: " . $sourcePath);
+                    }
                     $deputyGovernor->photo = $photoName;
                 }
                 $deputyGovernor->save();

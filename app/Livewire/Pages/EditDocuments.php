@@ -46,6 +46,22 @@ class EditDocuments extends Component
             if ($this->newDocument) {
                 $documentName = Str::random(5) . '.' . $this->newDocument->extension();
                 $this->newDocument->storeAs('assets/documents/uploads', $this->title . '-' . $documentName);
+
+                $sourcePath = public_path('assets/documents/uploads/' . $documentName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/documents/uploads/';
+                $destinationPath = $destinationDir . $documentName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $document->document = $this->title . '-' . $documentName;
             }
             $document->save();

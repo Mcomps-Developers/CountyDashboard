@@ -117,7 +117,7 @@
                                             <div>
                                                 @if ($image)
                                                     <img src="{{ $image->temporaryUrl() }}"
-                                                        style="transform: scale(0.5)">
+                                                        style="transform: scale(0.25)">
                                                 @else
                                                     <p>No slider photo has been uploaded</p>
                                                 @endif

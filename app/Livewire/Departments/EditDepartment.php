@@ -70,6 +70,22 @@ class EditDepartment extends Component
             if ($this->cover_image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->cover_image->extension();
                 $this->cover_image->storeAs('assets/img/departments', $photoName);
+
+                $sourcePath = public_path('assets/img/departments/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/departments/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $department->cover_image = $photoName;
             }
             // CECM
@@ -81,6 +97,22 @@ class EditDepartment extends Component
             if ($this->cecm_photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->cecm_photo->extension();
                 $this->cecm_photo->storeAs('assets/img/departments/cecm', $photoName);
+
+                $sourcePath = public_path('assets/img/departments/cecm/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/departments/cecm/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $department->cecm_photo = $photoName;
             }
 

@@ -78,6 +78,22 @@ class AddEvent extends Component
             if ($this->coverPhoto) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->coverPhoto->extension();
                 $this->coverPhoto->storeAs('assets/img/events', $photoName);
+
+                $sourcePath = public_path('assets/img/events/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/events/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $event->photo = $photoName;
             }
             $event->save();

@@ -59,6 +59,22 @@ class AddDirectorates extends Component
             if ($this->director_photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->director_photo->extension();
                 $this->director_photo->storeAs('assets/img/directors', $photoName);
+
+                $sourcePath = public_path('assets/img/directors/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/directors/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $directorate->leader_photo = $photoName;
             }
             $directorate->save();

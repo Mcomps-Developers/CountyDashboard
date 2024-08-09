@@ -43,6 +43,22 @@ class AddChiefOfficer extends Component
             if ($this->photo) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->photo->extension();
                 $this->photo->storeAs('assets/img/departments/chief_officer', $photoName);
+
+                $sourcePath = public_path('assets/img/departments/chief_officer/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/departments/chief_officer/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $officer->photo = $photoName;
             }
             $officer->save();

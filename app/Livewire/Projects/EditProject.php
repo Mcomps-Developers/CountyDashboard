@@ -63,6 +63,22 @@ class EditProject extends Component
             if ($this->new_cover_image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->new_cover_image->extension();
                 $this->new_cover_image->storeAs('assets/img/projects/covers', $photoName);
+
+                $sourcePath = public_path('assets/img/projects/covers/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/projects/covers/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $project->cover_image = $photoName;
             }
             $project->save();

@@ -64,6 +64,23 @@ class AddSlider extends Component
             if ($this->image) {
                 $photoName = Carbon::now()->addMinutes(2)->timestamp . '.' . $this->image->extension();
                 $this->image->storeAs('assets/img/sliders', $photoName);
+
+
+                $sourcePath = public_path('assets/img/sliders/' . $photoName);
+                $destinationDir = 'C:/inetpub/wwwroot/BusiaCounty/public/assets/img/sliders/';
+                $destinationPath = $destinationDir . $photoName;
+
+                if (!file_exists($destinationDir)) {
+                    mkdir($destinationDir, 0755, true);
+                }
+                if (file_exists($sourcePath)) {
+                    if (copy($sourcePath, $destinationPath)) {
+                    } else {
+                        throw new \Exception("Failed to copy file to: " . $destinationPath);
+                    }
+                } else {
+                    throw new \Exception("File not found at: " . $sourcePath);
+                }
                 $slider->image = $photoName;
             }
             $slider->save();
